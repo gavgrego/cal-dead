@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Start": {
+    "start": {
       "type": "datetime"
     },
-    "End": {
+    "end": {
       "type": "datetime"
     },
     "Image": {
