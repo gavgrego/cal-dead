@@ -26,10 +26,7 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "Content": {
@@ -37,6 +34,12 @@
     },
     "Location": {
       "type": "string"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Tickets": {
+      "type": "text"
     }
   }
 }
