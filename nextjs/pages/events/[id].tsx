@@ -1,4 +1,4 @@
-import useFetchApi from "../../hooks/useFetchApi";
+import UseFetchApi from "../../hooks/useFetchApi";
 import {
   GetStaticPaths,
   GetStaticProps,
@@ -11,7 +11,6 @@ import Image from "next/image";
 const Event: NextPage = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(event);
   return (
     <Grid>
       <Grid.Col span={3} className={styles.sidebar}>
@@ -30,7 +29,8 @@ const Event: NextPage = ({
           width="600"
           height="350"
           loading="eager"
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBwrcWGY7goOo274Qh2dtJgrEh-L3gxaqA&zoom=10&q=/${event.attributes.Address}`}
+          style={{ border: 0 }}
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API_KEY}&zoom=10&q=/${event.attributes.Address}`}
         ></iframe>
       </Grid.Col>
       <Grid.Col span={9}>{event.attributes.Content}</Grid.Col>
@@ -39,7 +39,7 @@ const Event: NextPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await useFetchApi("api/events");
+  const { data } = await UseFetchApi("api/events");
 
   const paths = data.map((event: any) => ({
     params: { id: event.id.toString() },
@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = await useFetchApi(`api/events/${params?.id}?populate=Image`);
+  const { data } = await UseFetchApi(`api/events/${params?.id}?populate=Image`);
 
   return {
     props: {

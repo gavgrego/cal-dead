@@ -7,9 +7,7 @@ const Header: React.FC = () => {
     <div
       className={`${styles.header} font-sans text-orange bg-white w-screen px-4 items-center`}
     >
-      <a href="/" className="text-3xl flex items-center">
-        Cal Dead
-      </a>
+      <Anchor href="/">Cal Dead</Anchor>
       <div className={`${styles.header__links} font-bold`}>
         <Anchor
           color={"orange"}

@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import Calendar from "../components/calendar";
-import useFetchApi from "../hooks/useFetchApi";
+import UseFetchApi from "../hooks/useFetchApi";
 
 const Home: NextPage = ({
   events,
@@ -19,7 +19,7 @@ const Home: NextPage = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const eventsRes = await useFetchApi("api/events");
+  const eventsRes = await UseFetchApi("api/events");
 
   // implement graphql
   eventsRes.data.forEach((event: any) => {

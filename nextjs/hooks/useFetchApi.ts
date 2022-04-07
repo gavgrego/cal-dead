@@ -2,7 +2,7 @@ import { useQuery, UseQueryResult } from "react-query";
 
 const baseUrl = "http://localhost:1337";
 
-const useFetchApi = async (path: string, params = null) => {
+const UseFetchApi = async (path: string, params = null) => {
   let url;
   if (params !== null) {
     url = `${baseUrl}/${path}/${params}`;
@@ -14,4 +14,4 @@ const useFetchApi = async (path: string, params = null) => {
   const data = await response.json();
   return data;
 };
-export default useFetchApi;
+export default UseFetchApi;
