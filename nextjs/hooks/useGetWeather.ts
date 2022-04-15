@@ -7,10 +7,10 @@ export type Weather = {
   weather: Array<any>;
 };
 
-const useGetWeather = () => {
-  const { isLoading, error, data } = useQuery("getWeather", () =>
+const useGetWeather = (location: string) => {
+  const { isLoading, error, data } = useQuery(`${location}-weather`, () =>
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=37.9735346&lon=-122.5310874&appid=${process.env.WEATHER_API_TOKEN}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?${location}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_TOKEN}&units=imperial`
     ).then((res) => res.json())
   );
   return { isLoading, error, data };

@@ -13,7 +13,7 @@ const Event: NextPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Grid>
-      <Grid.Col span={3} className={styles.sidebar}>
+      <Grid.Col xs={12} sm={3} className={styles.sidebar}>
         <div style={{ width: "100%", height: "100%", position: "relative" }}>
           <Image
             layout="responsive"
@@ -30,10 +30,12 @@ const Event: NextPage = ({
           height="350"
           loading="eager"
           style={{ border: 0 }}
-          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API_KEY}&zoom=10&q=/${event.attributes.Address}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&zoom=10&q=/${event.attributes.Address}`}
         ></iframe>
       </Grid.Col>
-      <Grid.Col span={9}>{event.attributes.Content}</Grid.Col>
+      <Grid.Col xs={12} sm={9}>
+        {event.attributes.Content}
+      </Grid.Col>
     </Grid>
   );
 };

@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[568],{3697:function(a,b,c){(window.__NEXT_P=window.__NEXT_P||[]).push(["/forum",function(){return c(4822)}])},4822:function(a,b,c){"use strict";c.r(b);var d=c(5893);b.default=function(){return(0,d.jsx)("div",{children:"Forum"})}}},function(a){a.O(0,[774,888,179],function(){return a(a.s=3697)}),_N_E=a.O()}])

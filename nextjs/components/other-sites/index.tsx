@@ -1,11 +1,16 @@
-import { List, Anchor } from "@mantine/core";
+import { List, Text } from "@mantine/core";
+import Anchor from "../global/anchor";
 
 const OtherSites: React.FC = (): JSX.Element => {
   return (
-    <div>
-      Other people and places we like:
-      <br />
+    <>
+      <Text component="h3">Other people and places we like:</Text>
       <List>
+        <List.Item>
+          <Anchor href="https://www.solfoodrestaurant.com/" target="_blank">
+            Sol Food
+          </Anchor>
+        </List.Item>
         <List.Item>
           <Anchor href="https://cloudsurfing.gdhour.com/" target="_blank">
             David Gans
@@ -22,22 +27,12 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
-          <Anchor href="https://www.solfoodrestaurant.com/" target="_blank">
-            Sol Food
-          </Anchor>
-        </List.Item>
-        <List.Item>
-          <Anchor href="https://710labs.com/" target="_blank">
-            710labs
-          </Anchor>
-        </List.Item>
-        <List.Item>
           <Anchor href="https://gavin.land/" target="_blank">
             GAVIN LAND
           </Anchor>
         </List.Item>
       </List>
-    </div>
+    </>
   );
 };
 

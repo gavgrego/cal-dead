@@ -404,14 +404,19 @@
                               "Content": {
                                 "type": "string"
                               },
-                              "Location": {
-                                "type": "string"
-                              },
                               "Address": {
                                 "type": "string"
                               },
                               "Tickets": {
                                 "type": "string"
+                              },
+                              "location": {
+                                "type": "string",
+                                "enum": [
+                                  "bay-area",
+                                  "la",
+                                  "other"
+                                ]
                               },
                               "createdAt": {
                                 "type": "string",
@@ -1377,14 +1382,19 @@
                             "Content": {
                               "type": "string"
                             },
-                            "Location": {
-                              "type": "string"
-                            },
                             "Address": {
                               "type": "string"
                             },
                             "Tickets": {
                               "type": "string"
+                            },
+                            "location": {
+                              "type": "string",
+                              "enum": [
+                                "bay-area",
+                                "la",
+                                "other"
+                              ]
                             },
                             "createdAt": {
                               "type": "string",
@@ -1855,73 +1865,13 @@
                   "data": {
                     "type": "object",
                     "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "start": {
+                      "location": {
                         "type": "string",
-                        "format": "date-time"
-                      },
-                      "end": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "Image": {
-                        "oneOf": [
-                          {
-                            "type": "integer"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ],
-                        "example": "string or id"
-                      },
-                      "Content": {
-                        "type": "string"
-                      },
-                      "Location": {
-                        "type": "string"
-                      },
-                      "Address": {
-                        "type": "string"
-                      },
-                      "Tickets": {
-                        "type": "string"
-                      },
-                      "createdAt": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "updatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "publishedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "createdBy": {
-                        "oneOf": [
-                          {
-                            "type": "integer"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ],
-                        "example": "string or id"
-                      },
-                      "updatedBy": {
-                        "oneOf": [
-                          {
-                            "type": "integer"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ],
-                        "example": "string or id"
+                        "enum": [
+                          "bay-area",
+                          "la",
+                          "other"
+                        ]
                       }
                     }
                   }
@@ -2334,14 +2284,19 @@
                             "Content": {
                               "type": "string"
                             },
-                            "Location": {
-                              "type": "string"
-                            },
                             "Address": {
                               "type": "string"
                             },
                             "Tickets": {
                               "type": "string"
+                            },
+                            "location": {
+                              "type": "string",
+                              "enum": [
+                                "bay-area",
+                                "la",
+                                "other"
+                              ]
                             },
                             "createdAt": {
                               "type": "string",
@@ -3216,14 +3171,19 @@
                             "Content": {
                               "type": "string"
                             },
-                            "Location": {
-                              "type": "string"
-                            },
                             "Address": {
                               "type": "string"
                             },
                             "Tickets": {
                               "type": "string"
+                            },
+                            "location": {
+                              "type": "string",
+                              "enum": [
+                                "bay-area",
+                                "la",
+                                "other"
+                              ]
                             },
                             "createdAt": {
                               "type": "string",
@@ -3730,14 +3690,19 @@
                       "Content": {
                         "type": "string"
                       },
-                      "Location": {
-                        "type": "string"
-                      },
                       "Address": {
                         "type": "string"
                       },
                       "Tickets": {
                         "type": "string"
+                      },
+                      "location": {
+                        "type": "string",
+                        "enum": [
+                          "bay-area",
+                          "la",
+                          "other"
+                        ]
                       },
                       "createdAt": {
                         "type": "string",

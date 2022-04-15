@@ -2,15 +2,24 @@ import "../styles/globals.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, useMantineTheme, Global } from "@mantine/core";
 import Layout from "../layouts/layout";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const theme = useMantineTheme();
   return (
     <QueryClientProvider client={queryClient}>
+      <Global
+        styles={(theme) => ({
+          h3: {
+            marginTop: 0,
+            marginBottom: ".5rem",
+          },
+        })}
+      />
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
@@ -18,17 +27,21 @@ function MyApp({ Component, pageProps }: AppProps) {
           /** Put your mantine theme override here */
           colorScheme: "light",
           colors: {
-            gray: ["#FBFBFB"],
+            blue: ["#005A9C"],
+            // gray: ["#FBFBFB"],
             orange: ["#c0362c"],
             white: ["#fff"],
           },
+
+          fontFamily: "Rubik",
+          spacing: { xs: 1, sm: 1.5, md: 2, lg: 2.5, xl: 3 },
         }}
       >
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </MantineProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }

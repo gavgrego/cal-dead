@@ -32,14 +32,21 @@
     "Content": {
       "type": "richtext"
     },
-    "Location": {
-      "type": "string"
-    },
     "Address": {
       "type": "text"
     },
     "Tickets": {
       "type": "text"
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "bay-area",
+        "la",
+        "other"
+      ],
+      "default": "bay-area",
+      "required": true
     }
   }
 }
