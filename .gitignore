@@ -1,2 +1,3 @@
-/nextjs/.env
-/nextjs/.next
+.env
+.env.*
+.next
