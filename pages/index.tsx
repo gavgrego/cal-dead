@@ -15,6 +15,7 @@ const useStyles = createStyles((theme) => ({
 const Home: NextPage = ({
   events,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(events);
   const { classes } = useStyles();
   const [filteredEvents, setFilteredEvents] = useState(events);
 
@@ -92,7 +93,6 @@ const Home: NextPage = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const eventsRes = await UseFetchApi("api/events");
-
   // implement graphql
   eventsRes.data.forEach((event: any) => {
     event.id = event.id;

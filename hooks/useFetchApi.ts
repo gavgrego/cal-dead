@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from "react-query";
 
-const baseUrl = "https://cal-dead-strapi.herokuapp.com/";
+const baseUrl = "https://cal-dead-strapi.herokuapp.com";
 
 const UseFetchApi = async (path: string, params = null) => {
   let url;

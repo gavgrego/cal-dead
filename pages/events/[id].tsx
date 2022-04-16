@@ -15,14 +15,16 @@ const Event: NextPage = ({
     <Grid>
       <Grid.Col xs={12} sm={3} className={styles.sidebar}>
         <div style={{ width: "100%", height: "100%", position: "relative" }}>
-          <Image
-            layout="responsive"
-            width={100}
-            height={100}
-            objectFit="contain"
-            objectPosition="relative"
-            src={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.url}`}
-          />
+          {event.attributes.Image.data && (
+            <Image
+              layout="responsive"
+              width={100}
+              height={100}
+              objectFit="contain"
+              objectPosition="relative"
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.url}`}
+            />
+          )}
         </div>
         <br />
         <iframe
