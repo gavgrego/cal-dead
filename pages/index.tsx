@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import Calendar from "../components/calendar";
 import UseFetchApi from "../hooks/useFetchApi";
-import { Grid, createStyles, Text, Button } from "@mantine/core";
+import { Grid, createStyles, Text, Button, Loader } from "@mantine/core";
 import OtherSites from "../components/other-sites";
 import { useState } from "react";
 import Weather from "../components/weather";
@@ -15,7 +15,6 @@ const useStyles = createStyles((theme) => ({
 const Home: NextPage = ({
   events,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(events);
   const { classes } = useStyles();
   const [filteredEvents, setFilteredEvents] = useState(events);
 
@@ -59,7 +58,7 @@ const Home: NextPage = ({
       </Grid.Col>
 
       <Grid.Col className={classes.calendar} span={12}>
-        <Calendar events={filteredEvents} />
+        {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
       </Grid.Col>
       <Grid.Col span={12}>
         <Grid gutter={24}>

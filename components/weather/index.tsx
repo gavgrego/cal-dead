@@ -32,12 +32,14 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
                 {city}, CA
               </Text>
               {sr && (
-                <Text size="sm" align="center">
+                <Text size="xs" align="center">
                   <em>(The Home of the Grateful Dead)</em>
                 </Text>
               )}
               <div style={{ textAlign: "center" }}>
-                <Text>{Math.ceil(weather.main.temp)}&deg;F&nbsp;</Text>
+                <Text size="lg">
+                  {Math.ceil(weather.main.temp)}&deg;F&nbsp;
+                </Text>
                 <Image
                   layout="fixed"
                   height={32}
