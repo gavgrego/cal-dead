@@ -61,8 +61,8 @@ const Home: NextPage = ({
         {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
       </Grid.Col>
       <Grid.Col span={12}>
-        <Grid gutter={24}>
-          <Grid.Col xs={12} sm={4}>
+        <Grid gutter={24} justify="center">
+          <Grid.Col xs={12} sm={3}>
             <OtherSites />
           </Grid.Col>
           {/* <Grid.Col xs={12} sm={4}>
@@ -72,7 +72,7 @@ const Home: NextPage = ({
               height="140"
             ></iframe>
           </Grid.Col> */}
-          <Grid.Col xs={12} sm={4}>
+          <Grid.Col xs={12} sm={3}>
             <Text component="h3">Weather Report Suite:</Text>
             <Weather
               sr={true}

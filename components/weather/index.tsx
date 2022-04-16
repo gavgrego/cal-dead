@@ -22,6 +22,7 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
   const { data, isLoading } = useGetWeather(location);
   const weather = data as Weather;
   const { classes } = useStyles();
+
   return (
     <>
       {!isLoading && (

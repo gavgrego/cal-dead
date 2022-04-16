@@ -13,6 +13,10 @@ export default class _Document extends Document {
       ...initialProps,
       styles: (
         <>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Rubik"
+          />
           {initialProps.styles}
           <ServerStyles html={initialProps.html} server={stylesServer} />
         </>
