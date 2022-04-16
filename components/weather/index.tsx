@@ -25,7 +25,7 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
   return (
     <>
       {!isLoading && (
-        <Paper shadow="sm" p="lg" color="gray">
+        <Paper className={classes.card} shadow="sm" p="lg" color="gray">
           <Grid justify="center">
             <Grid.Col>
               <Text align="center" component="h2" className={classes.heading}>
