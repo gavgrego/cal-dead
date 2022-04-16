@@ -1,6 +1,7 @@
 import useGetWeather, { Weather } from "../../hooks/useGetWeather";
 import styles from "./styles.module.scss";
 import { Paper, Grid, Text, createStyles } from "@mantine/core";
+import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -37,8 +38,11 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
                 </Text>
               )}
               <div style={{ textAlign: "center" }}>
-                {Math.ceil(weather.main.temp)}&deg;F&nbsp;
-                <img
+                <Text>{Math.ceil(weather.main.temp)}&deg;F&nbsp;</Text>
+                <Image
+                  layout="fixed"
+                  height={32}
+                  width={32}
                   src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
                 />
               </div>

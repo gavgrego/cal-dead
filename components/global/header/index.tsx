@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
   return (
     <div className={classes.header}>
-      <Link href="/">
+      <Link href="/" passHref>
         <Anchor className={classes.logo}>
           <span>🌁</span>
         </Anchor>
@@ -50,11 +50,11 @@ const Header: React.FC = () => {
           Discord
         </Anchor>
         &nbsp; &nbsp; &nbsp;
-        <Link href="/blog">
+        <Link href="/blog" passHref>
           <Anchor>Blog</Anchor>
         </Link>
         &nbsp; &nbsp; &nbsp;
-        <Link href="/about">
+        <Link href="/about" passHref>
           <Anchor>About</Anchor>
         </Link>
       </div>

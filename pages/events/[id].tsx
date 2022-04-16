@@ -17,6 +17,7 @@ const Event: NextPage = ({
         <div style={{ width: "100%", height: "100%", position: "relative" }}>
           {event.attributes.Image.data && (
             <Image
+              alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
               layout="responsive"
               width={100}
               height={100}
