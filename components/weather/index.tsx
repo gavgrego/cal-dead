@@ -1,11 +1,14 @@
 import useGetWeather, { Weather } from "../../hooks/useGetWeather";
-import styles from "./styles.module.scss";
 import { Paper, Grid, Text, createStyles } from "@mantine/core";
 import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
   card: {
     border: `1px solid ${theme.colors.gray[3]}`,
+  },
+  heading: {
+    fontSize: "1.5rem",
+    marginBottom: ".25rem",
   },
 }));
 
@@ -25,11 +28,7 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
         <Paper className={classes.card} shadow="sm" p="lg" color="gray">
           <Grid justify="center">
             <Grid.Col>
-              <Text
-                align="center"
-                component="h2"
-                className={styles.weatherCard__heading}
-              >
+              <Text align="center" component="h2" className={classes.heading}>
                 {city}, CA
               </Text>
               {sr && (

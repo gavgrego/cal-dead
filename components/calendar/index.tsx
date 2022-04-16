@@ -2,7 +2,6 @@ import { Calendar as Cal, dateFnsLocalizer, Event } from "react-big-calendar";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import enUS from "date-fns/locale/en-US";
 import React, { useMemo, useEffect } from "react";
-import styles from "./styles.module.scss";
 import { useRouter } from "next/router";
 import { Tooltip, createStyles } from "@mantine/core";
 
@@ -70,7 +69,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
   const { classes } = useStyles();
 
   return (
-    <div style={{ overflowX: "auto" }} className={styles.calendarContain}>
+    <div style={{ overflowX: "auto" }}>
       <Cal
         className={classes.calendar}
         localizer={localizer}
