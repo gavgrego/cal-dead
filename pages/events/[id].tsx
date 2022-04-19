@@ -23,7 +23,7 @@ const Event: NextPage = ({
               height={100}
               objectFit="contain"
               objectPosition="relative"
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.url}`}
+              src={event.attributes.Image.data.attributes.url}
             />
           )}
         </div>

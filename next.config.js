@@ -4,7 +4,12 @@ const nextConfig = {
   // swcMinify: true,
   images: {
     loader: "default",
-    domains: ["localhost", "openweathermap.org"],
+    domains: [
+      "localhost",
+      "openweathermap.org",
+      "res.cloudinary.com",
+      "cloudinary.com",
+    ],
   },
 };
 
