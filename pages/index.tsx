@@ -20,17 +20,17 @@ const Home: NextPage = ({
 
   const filterEvents = (area: string) => {
     if (filteredEvents[0].location === area) {
+      console.log(filteredEvents[0].location);
       setFilteredEvents(events);
     } else {
-      setFilteredEvents(
-        events.filter((item: { location: string }) => item.location === area)
-      );
+      setFilteredEvents(events.filter((item: any) => item.location === area));
+      console.log(filteredEvents);
     }
   };
 
   return (
-    <Grid>
-      <Grid.Col>
+    <>
+      {/* <div>
         <Text component="h3">Filter by metro area</Text>
         <Button
           variant="gradient"
@@ -55,38 +55,43 @@ const Home: NextPage = ({
         >
           Other
         </Button>
-      </Grid.Col>
-
-      <Grid.Col className={classes.calendar} span={12}>
-        {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
-      </Grid.Col>
-      <Grid.Col span={12}>
-        <Grid gutter={24} justify="center">
-          <Grid.Col xs={12} sm={3}>
-            <OtherSites />
-          </Grid.Col>
-          {/* <Grid.Col xs={12} sm={4}>
-            <iframe
-              src="https://archive.org/embed/gd73-03-31.sbd.yerys.2237.sbeok.shnf"
-              width="500"
-              height="140"
-            ></iframe>
-          </Grid.Col> */}
-          <Grid.Col xs={12} sm={3}>
+      </div> */}
+      <Grid gutter={32}>
+        <Grid.Col className={classes.calendar} span={9}>
+          {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
+        </Grid.Col>
+        <Grid.Col span={3}>
+          <div>
             <Text component="h3">Weather Report Suite:</Text>
             <Weather
               sr={true}
               city="San Rafael"
               location="lat=37.9735346&lon=-122.5310874"
             />
-            <br />
+            <Weather
+              city="San Francisco"
+              location="lat=37.7749&lon=-122.4194"
+            />
+            <Weather city="Oakland" location="lat=37.8044&lon=-122.2712" />
+            <Weather city="Santa Cruz" location="lat=36.9741&lon=-122.0308" />
+            <Weather
+              city="San Luis Obispo"
+              location="lat=35.2828&lon=-120.6596"
+            />
             <Weather city="Los Angeles" location="lat=34.0522&lon=-118.2437" />
-            <br />
+            <Weather city="Santa Monica" location="lat=34.0195&lon=-118.4912" />
+            <Weather city="San Diego" location="lat=32.7157&lon=-117.1611" />
             <Weather city="Lake Tahoe" location="lat=39.0968&lon=-120.0324" />
-          </Grid.Col>
-        </Grid>
-      </Grid.Col>
-    </Grid>
+            <Weather
+              city="Humboldt County"
+              location="lat=40.7450&lon=-123.8695"
+            />
+          </div>
+          <br />
+          <OtherSites />
+        </Grid.Col>
+      </Grid>
+    </>
   );
 };
 

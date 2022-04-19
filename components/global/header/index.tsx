@@ -6,6 +6,9 @@ const useStyles = createStyles((theme) => ({
   header: {
     alignItems: "center",
     background: "white",
+    borderTop: 0,
+    borderLeft: 0,
+    borderRight: 0,
     borderBottom: "solid .5rem",
     borderImageSource:
       "linear-gradient(to right, #731ec2, #0074D9, #008000, yellow, red)",

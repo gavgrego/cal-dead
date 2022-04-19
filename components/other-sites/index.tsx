@@ -12,6 +12,11 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
+          <Anchor href="https://www.purplestarmd.com" target="_blank">
+            Purple Star SF
+          </Anchor>
+        </List.Item>
+        <List.Item>
           <Anchor href="https://cloudsurfing.gdhour.com/" target="_blank">
             David Gans
           </Anchor>
@@ -23,7 +28,15 @@ const OtherSites: React.FC = (): JSX.Element => {
         </List.Item>
         <List.Item>
           <Anchor href="https://www.marinbike.org/" target="_blank">
-            MCBC
+            Marin County Bicycle Coalition
+          </Anchor>
+        </List.Item>
+        <List.Item>
+          <Anchor
+            href="https://www.instagram.com/accidentalstealie/"
+            target="_blank"
+          >
+            Accidental Stealie
           </Anchor>
         </List.Item>
         <List.Item>

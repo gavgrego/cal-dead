@@ -1,14 +1,23 @@
 import useGetWeather, { Weather } from "../../hooks/useGetWeather";
 import { Paper, Grid, Text, createStyles } from "@mantine/core";
 import Image from "next/image";
+import { wrap } from "module";
 
 const useStyles = createStyles((theme) => ({
   card: {
+    alignItems: "center",
     border: `1px solid ${theme.colors.gray[3]}`,
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: ".25rem",
+  },
+  cardContain: {
+    justifyContent: "space-between",
+    width: "100%",
   },
   heading: {
-    fontSize: "1.5rem",
-    marginBottom: ".25rem",
+    fontSize: "1rem",
+    margin: ".25rem .5rem",
   },
 }));
 
@@ -27,28 +36,25 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
     <>
       {!isLoading && (
         <Paper className={classes.card} shadow="sm" p="lg" color="gray">
-          <Grid justify="center">
-            <Grid.Col>
-              <Text align="center" component="h2" className={classes.heading}>
-                {city}, CA
-              </Text>
+          <Grid align="center" justify="center" className={classes.cardContain}>
+            <Text align="center" component="h2" className={classes.heading}>
+              {city}, CA
               {sr && (
                 <Text size="xs" align="center">
                   <em>(The Home of the Grateful Dead)</em>
                 </Text>
               )}
-              <div style={{ textAlign: "center" }}>
-                <Text size="lg">
-                  {Math.ceil(weather.main.temp)}&deg;F&nbsp;
-                </Text>
-                <Image
-                  layout="fixed"
-                  height={32}
-                  width={32}
-                  src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
-                />
-              </div>
-            </Grid.Col>
+            </Text>
+
+            <Grid align="center" justify="center">
+              <Text size="lg">{Math.ceil(weather.main.temp)}&deg;F&nbsp;</Text>
+              <Image
+                layout="fixed"
+                height={32}
+                width={32}
+                src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+              />
+            </Grid>
           </Grid>
         </Paper>
       )}
