@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
     background:
       "linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706)",
     backgroundSize: " 600% 100%",
-    animation: "gradient 6s linear infinite",
+    animation: "gradient 4.5s linear infinite",
     animationDirection: "alternate",
     "@keyframes gradient": {
       "0%": {
