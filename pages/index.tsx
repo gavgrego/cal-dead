@@ -57,10 +57,10 @@ const Home: NextPage = ({
         </Button>
       </div> */}
       <Grid gutter={32}>
-        <Grid.Col className={classes.calendar} span={9}>
+        <Grid.Col className={classes.calendar} xs={12} sm={9}>
           {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
         </Grid.Col>
-        <Grid.Col span={3}>
+        <Grid.Col xs={12} sm={3}>
           <div>
             <Text component="h3">Weather Report Suite:</Text>
             <Weather
