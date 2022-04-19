@@ -27,6 +27,11 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
+          <Anchor href="https://talkingterps.com/" target="_blank">
+            Talking Terps
+          </Anchor>
+        </List.Item>
+        <List.Item>
           <Anchor href="https://www.marinbike.org/" target="_blank">
             Marin County Bicycle Coalition
           </Anchor>
