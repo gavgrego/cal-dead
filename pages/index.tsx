@@ -69,6 +69,10 @@ const Home: NextPage = ({
               location="lat=37.9735346&lon=-122.5310874"
             />
             <Weather
+              city="Mt. Tamalpais"
+              location="lat=37.9235&lon=-122.5965"
+            />
+            <Weather
               city="San Francisco"
               location="lat=37.7749&lon=-122.4194"
             />
@@ -79,7 +83,6 @@ const Home: NextPage = ({
               location="lat=35.2828&lon=-120.6596"
             />
             <Weather city="Los Angeles" location="lat=34.0522&lon=-118.2437" />
-            <Weather city="Santa Monica" location="lat=34.0195&lon=-118.4912" />
             <Weather city="San Diego" location="lat=32.7157&lon=-117.1611" />
             <Weather city="Lake Tahoe" location="lat=39.0968&lon=-120.0324" />
             <Weather
