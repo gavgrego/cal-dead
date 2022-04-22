@@ -4,6 +4,7 @@ import enUS from "date-fns/locale/en-US";
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { Tooltip, createStyles, Dialog, Text } from "@mantine/core";
+import { useMedia, useLocalStorage } from "react-use";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
@@ -86,13 +87,18 @@ type Props = {
 };
 
 const Calendar: React.FC<Props> = ({ events }) => {
+  const isMobile = useMedia("(max-width: 700px)");
+  const [dialogValue, setDialogValue] = useLocalStorage<boolean>(
+    "mobile-dialog",
+    false
+  );
   const router = useRouter();
   const { classes } = useStyles();
   const [opened, setOpened] = useState(true);
   const scrollRef = useRef(null);
   // timer to close calendar scroll dialog
   const closeDialogOnScroll = () => {
-    // if screen size < 700px
+    setDialogValue(true);
     setTimeout(() => {
       setOpened(false);
     }, 500);
@@ -105,29 +111,31 @@ const Calendar: React.FC<Props> = ({ events }) => {
       className={classes.calendarContain}
       style={{ overflowX: "auto" }}
     >
-      <Dialog
-        position={{ bottom: 16, right: 16 }}
-        className={classes.dialog}
-        transition={"slide-up"}
-        opened={opened}
-        onClose={() => setOpened(false)}
-        size="md"
-        radius="sm"
-        shadow="xl"
-        p={".5rem"}
-      >
-        <Text>
-          Scroll
-          <Text component="span" size="xl">
-            &nbsp;➡️&nbsp;
+      {isMobile && !dialogValue && (
+        <Dialog
+          position={{ bottom: 16, right: 16 }}
+          className={classes.dialog}
+          transition={"slide-up"}
+          opened={opened}
+          onClose={() => setOpened(false)}
+          size="md"
+          radius="sm"
+          shadow="xl"
+          p={".5rem"}
+        >
+          <Text>
+            Scroll
+            <Text component="span" size="xl">
+              &nbsp;➡️&nbsp;
+            </Text>
+            on your
+            <Text component="span" size="xl">
+              &nbsp;📱&nbsp;
+            </Text>
+            for the full calendar
           </Text>
-          on your
-          <Text component="span" size="xl">
-            &nbsp;📱&nbsp;
-          </Text>
-          for the full calendar
-        </Text>
-      </Dialog>
+        </Dialog>
+      )}
       <Cal
         className={classes.calendar}
         localizer={localizer}

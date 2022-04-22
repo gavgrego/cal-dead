@@ -30,7 +30,7 @@ const Home: NextPage = ({
 
   return (
     <>
-      {/* <div>
+      <div>
         <Text component="h3">Filter by metro area</Text>
         <Button
           variant="gradient"
@@ -55,7 +55,7 @@ const Home: NextPage = ({
         >
           Other
         </Button>
-      </div> */}
+      </div>
       <Grid gutter={32}>
         <Grid.Col className={classes.calendar} xs={12} sm={9}>
           {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
