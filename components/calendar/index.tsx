@@ -87,20 +87,20 @@ type Props = {
 };
 
 const Calendar: React.FC<Props> = ({ events }) => {
-  const isMobile = useMedia("(max-width: 700px)");
   const [dialogValue, setDialogValue] = useLocalStorage<boolean>(
     "mobile-dialog",
     false
   );
+  const isMobile = useMedia("(max-width: 700px)");
   const router = useRouter();
   const { classes } = useStyles();
   const [opened, setOpened] = useState(true);
   const scrollRef = useRef(null);
   // timer to close calendar scroll dialog
   const closeDialogOnScroll = () => {
-    setDialogValue(true);
     setTimeout(() => {
       setOpened(false);
+      setDialogValue(true);
     }, 500);
   };
 
@@ -111,7 +111,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
       className={classes.calendarContain}
       style={{ overflowX: "auto" }}
     >
-      {isMobile && !dialogValue && (
+      {!dialogValue && isMobile && (
         <Dialog
           position={{ bottom: 16, right: 16 }}
           className={classes.dialog}

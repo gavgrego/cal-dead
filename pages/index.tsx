@@ -19,11 +19,13 @@ const Home: NextPage = ({
   const [filteredEvents, setFilteredEvents] = useState(events);
 
   const filterEvents = (area: string) => {
-    if (filteredEvents[0].location === area) {
-      console.log(filteredEvents[0].location);
+    if (filteredEvents[0]?.location === area) {
       setFilteredEvents(events);
+      console.log(filteredEvents);
     } else {
-      setFilteredEvents(events.filter((item: any) => item.location === area));
+      setFilteredEvents(
+        filteredEvents.filter((item: any) => item.location === area)
+      );
       console.log(filteredEvents);
     }
   };
