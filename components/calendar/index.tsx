@@ -29,8 +29,8 @@ const useStyles = createStyles((theme) => ({
   },
   calendarContain: {
     // background:"rgb(0,0,0)",
-    background:
-      "linear-gradient(90deg, rgba(0,0,0,0) 65%, rgba(255,255,255,1) 100%)",
+    // background:
+    // "linear-gradient(90deg, rgba(0,0,0,0) 65%, rgba(255,255,255,1) 100%)",
   },
   calendarFilters: {
     backgroundColor: theme.colors.gray,
@@ -209,7 +209,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
         endAccessor="end"
         showAllEvents={true}
         style={{ height: 650 }}
-        views={["month", "week"]}
+        views={["month"]}
         components={{
           eventWrapper: (wrapper) => (
             <Tooltip
