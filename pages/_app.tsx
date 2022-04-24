@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             blue: ["#005A9C"],
             orange: ["#c0362c"],
             green: ["#40c057"],
+            gray: ["#f8f9fa"],
             white: ["#fff"],
           },
 

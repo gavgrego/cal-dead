@@ -1,5 +1,5 @@
 import useGetWeather, { Weather } from "../../hooks/useGetWeather";
-import { Paper, Grid, Text, createStyles } from "@mantine/core";
+import { Paper, Grid, Text, createStyles, Loader } from "@mantine/core";
 import Image from "next/image";
 import { wrap } from "module";
 
@@ -34,7 +34,7 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
 
   return (
     <>
-      {!isLoading && (
+      {!isLoading ? (
         <Paper className={classes.card} shadow="sm" p="lg" color="gray">
           <Grid align="center" justify="center" className={classes.cardContain}>
             <Text align="center" component="h2" className={classes.heading}>
@@ -57,6 +57,8 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
             </Grid>
           </Grid>
         </Paper>
+      ) : (
+        <Loader size={"sm"} />
       )}
     </>
   );

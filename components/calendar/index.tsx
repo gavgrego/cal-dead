@@ -33,6 +33,7 @@ const useStyles = createStyles((theme) => ({
       "linear-gradient(90deg, rgba(0,0,0,0) 65%, rgba(255,255,255,1) 100%)",
   },
   calendarFilters: {
+    backgroundColor: theme.colors.gray,
     textAlign: "right",
   },
   dialog: {
@@ -106,6 +107,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
     false
   );
   const [filteredEvents, setFilteredEvents] = useState(events);
+  console.log(events);
   const theme = useMantineTheme();
   const isMobile = useMedia("(max-width: 700px)");
   const router = useRouter();

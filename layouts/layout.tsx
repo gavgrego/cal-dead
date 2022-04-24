@@ -7,7 +7,8 @@ import { createStyles } from "@mantine/core";
 const useStyles = createStyles((theme) => ({
   content: {
     backgroundColor: theme.colors.gray[0],
-    padding: "1rem 1.5rem",
+    minHeight: "100%",
+    padding: "1rem 3rem",
     marginTop: "75px",
   },
 }));

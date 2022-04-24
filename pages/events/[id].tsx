@@ -10,28 +10,29 @@ import Image from "next/image";
 const Event: NextPage = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(
-    process.env.NEXT_PUBLIC_BASE_URL +
-      event.attributes.Image.data.attributes.width
-  );
   return (
-    <Grid gutter={32}>
-      <Grid.Col xs={12} sm={3}>
-        {event.attributes.Image.data && (
-          <div style={{ width: "100%", height: "100vh" }}>
-            <Image
-              alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
-              layout="responsive"
-              width={event.attributes.Image.data.attributes.width}
-              height={event.attributes.Image.data.attributes.height}
-              objectPosition="relative"
-              src={event.attributes.Image.data.attributes.url}
-            />
-          </div>
-        )}
-      </Grid.Col>
+    <Grid gutter={32} mt={32}>
+      {event.attributes.Image.data && (
+        <Grid.Col xs={12} sm={3}>
+          {event.attributes.Image.data && (
+            <div style={{ width: "100%", height: "100vh" }}>
+              <Image
+                alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
+                layout="responsive"
+                width={event.attributes.Image.data.attributes.width}
+                height={event.attributes.Image.data.attributes.height}
+                objectPosition="relative"
+                src={event.attributes.Image.data.attributes.url}
+              />
+            </div>
+          )}
+        </Grid.Col>
+      )}
       <Grid.Col xs={12} sm={9}>
         {event.attributes.Content}
+        {/* tickets link */}
+        {/* start time */}
+
         <br />
         <br />
 
