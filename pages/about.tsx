@@ -3,8 +3,8 @@ import { NextPage } from "next";
 
 const About: NextPage = () => {
   return (
-    <Grid my={32}>
-      <Grid.Col span={6}>
+    <Grid my={32} justify="center">
+      <Grid.Col sm={12} md={6}>
         <Text>
           Cal Dead was started for the simple purpose of being a single source
           of truth for all Grateul Dead related shows happening in the state of
