@@ -12,8 +12,8 @@ const About: NextPage = () => {
           see a Dead band every day of the week.
         </Text>
         <Text>
-          If you would like to submit a show that I've missed or haven't gotten
-          to yet, please email me at gavgrego@gmail.com
+          If you would like to submit a show that I&apos;ve missed or
+          haven&apos;t gotten to yet, please email me at gavgrego@gmail.com
         </Text>
       </Grid.Col>
     </Grid>
