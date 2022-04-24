@@ -220,6 +220,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
           components={{
             eventWrapper: (wrapper) => (
               <Tooltip
+                disabled={isMobile ? true : false}
                 className={`${classes.event} ${wrapper.event.location}`}
                 color="dark"
                 label={`${wrapper.event.title}`}
