@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   content: {
     color: "white",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     fontSize: "0.875rem",
   },
 
@@ -58,8 +58,20 @@ const Footer: React.FC = () => {
       className={classes.footer}
       style={{ backgroundColor: theme.colors.orange[0] }}
     >
-      <Grid m={0}>
+      <Grid mx={0}>
         <Grid.Col className={classes.content} span={12}>
+          <Text className={classes.copy}>
+            📧&nbsp;
+            <Anchor
+              color={"white"}
+              href="mailto:gavgrego@gmail.com"
+              className="underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Get ahold of me
+            </Anchor>
+          </Text>
           <Text className={classes.copy}>
             Made in Marin. Built with&nbsp;
             <Anchor

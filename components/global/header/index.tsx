@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
     borderTop: 0,
     borderLeft: 0,
     borderRight: 0,
-    borderBottom: "solid .5rem",
+    borderBottom: "solid .3rem",
     borderImageSource:
       "linear-gradient(to right, #731ec2, #0074D9, #008000, yellow, red)",
     borderImageSlice: 1,
@@ -49,17 +49,17 @@ const Header: React.FC = () => {
         </Anchor>
       </Link>
       <div className={classes.links}>
-        <Anchor href="https://discord.gg/FswagXhdZy" target="_blank">
-          Discord
-        </Anchor>
-        &nbsp; &nbsp; &nbsp;
-        <Link href="/blog" passHref>
-          <Anchor>Blog</Anchor>
-        </Link>
-        &nbsp; &nbsp; &nbsp;
         <Link href="/about" passHref>
           <Anchor>About</Anchor>
         </Link>
+        &nbsp; &nbsp; &nbsp;
+        <Anchor href="https://discord.gg/FswagXhdZy" target="_blank">
+          Discord
+        </Anchor>
+        {/* &nbsp; &nbsp; &nbsp;
+        <Link href="#" passHref>
+          <Anchor>Blog</Anchor>
+        </Link> */}
       </div>
     </div>
   );

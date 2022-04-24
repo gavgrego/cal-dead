@@ -28,8 +28,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: "light",
           colors: {
             blue: ["#005A9C"],
-            // gray: ["#FBFBFB"],
             orange: ["#c0362c"],
+            green: ["#40c057"],
             white: ["#fff"],
           },
 

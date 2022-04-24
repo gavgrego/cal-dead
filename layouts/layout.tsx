@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
   content: {
     backgroundColor: theme.colors.gray[0],
     padding: "1rem 1.5rem",
-    marginTop: "100px",
+    marginTop: "75px",
   },
 }));
 

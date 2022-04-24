@@ -1,9 +1,16 @@
 import { Calendar as Cal, dateFnsLocalizer, Event } from "react-big-calendar";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import enUS from "date-fns/locale/en-US";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Ref } from "react";
 import { useRouter } from "next/router";
-import { Tooltip, createStyles, Dialog, Text } from "@mantine/core";
+import {
+  Tooltip,
+  createStyles,
+  Dialog,
+  Text,
+  Button,
+  useMantineTheme,
+} from "@mantine/core";
 import { useMedia, useLocalStorage } from "react-use";
 
 const useStyles = createStyles((theme) => ({
@@ -25,6 +32,9 @@ const useStyles = createStyles((theme) => ({
     background:
       "linear-gradient(90deg, rgba(0,0,0,0) 65%, rgba(255,255,255,1) 100%)",
   },
+  calendarFilters: {
+    textAlign: "right",
+  },
   dialog: {
     background:
       "linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706)",
@@ -45,7 +55,7 @@ const useStyles = createStyles((theme) => ({
     minHeight: 0,
   },
   event: {
-    backgroundColor: `${theme.colors.orange}`,
+    // backgroundColor: `${theme.colors.orange}`,
     borderRadius: ".25rem",
     color: "white",
     cursor: "pointer",
@@ -55,12 +65,16 @@ const useStyles = createStyles((theme) => ({
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
 
-    "&--bay-area": {
+    "&.bay-area": {
       backgroundColor: `${theme.colors.orange}`,
     },
 
-    "&--la": {
+    "&.la": {
       backgroundColor: `${theme.colors.blue}`,
+    },
+
+    "&.other": {
+      backgroundColor: `${theme.colors.green}`,
     },
   },
 }));
@@ -91,27 +105,40 @@ const Calendar: React.FC<Props> = ({ events }) => {
     "mobile-dialog",
     false
   );
+  const [filteredEvents, setFilteredEvents] = useState(events);
+  const theme = useMantineTheme();
   const isMobile = useMedia("(max-width: 700px)");
   const router = useRouter();
   const { classes } = useStyles();
   const [opened, setOpened] = useState(true);
   const scrollRef = useRef(null);
-  // timer to close calendar scroll dialog
+
+  // this is firing sometimes when the calendar loads in, firing the onscroll (not always scrolling with mouse) need to defer until page is
   const closeDialogOnScroll = () => {
     setTimeout(() => {
       setOpened(false);
-      setDialogValue(true);
     }, 500);
+  };
+
+  const filterEvents = (area: string) => {
+    if (filteredEvents[0].location === area) {
+      setFilteredEvents(events);
+    } else {
+      const categoryFilteredEvents = events.filter(
+        (item: any) => item.location === area
+      );
+      setFilteredEvents(categoryFilteredEvents);
+    }
   };
 
   return (
     <div
-      // ref={scrollRef}
-      onScroll={() => closeDialogOnScroll()}
+      ref={scrollRef}
+      onScroll={closeDialogOnScroll}
       className={classes.calendarContain}
       style={{ overflowX: "auto" }}
     >
-      {!dialogValue && isMobile && (
+      {isMobile && (
         <Dialog
           position={{ bottom: 16, right: 16 }}
           className={classes.dialog}
@@ -136,10 +163,46 @@ const Calendar: React.FC<Props> = ({ events }) => {
           </Text>
         </Dialog>
       )}
+      {/* TODO: Put this in its own component */}
+      <div className={classes.calendarFilters}>
+        <Text component="h3">Filter by metro area:</Text>
+        <Button
+          compact
+          style={{ backgroundColor: theme.colors.orange[0] }}
+          onClick={() => filterEvents("bay-area")}
+        >
+          Bay Area
+        </Button>
+        &nbsp;
+        <Button
+          style={{ backgroundColor: theme.colors.blue[0] }}
+          compact
+          onClick={() => filterEvents("la")}
+        >
+          LA
+        </Button>
+        &nbsp;
+        <Button
+          compact
+          style={{ backgroundColor: theme.colors.green[0] }}
+          onClick={() => filterEvents("other")}
+        >
+          Other
+        </Button>
+        &nbsp; &nbsp;
+        <Button
+          compact
+          variant="outline"
+          color="indigo"
+          onClick={() => setFilteredEvents(events)}
+        >
+          Reset
+        </Button>
+      </div>
       <Cal
         className={classes.calendar}
         localizer={localizer}
-        events={events}
+        events={filteredEvents}
         startAccessor="start"
         endAccessor="end"
         showAllEvents={true}

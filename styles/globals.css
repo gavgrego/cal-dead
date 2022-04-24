@@ -23,6 +23,10 @@ iframe {
   width: 100%;
 }
 
+button {
+  font-family: "Rubik" !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

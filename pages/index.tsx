@@ -1,7 +1,14 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import Calendar from "../components/calendar";
 import UseFetchApi from "../hooks/useFetchApi";
-import { Grid, createStyles, Text, Button, Loader } from "@mantine/core";
+import {
+  Grid,
+  createStyles,
+  Text,
+  Button,
+  Loader,
+  useMantineTheme,
+} from "@mantine/core";
 import OtherSites from "../components/other-sites";
 import { useState } from "react";
 import Weather from "../components/weather";
@@ -15,52 +22,14 @@ const useStyles = createStyles((theme) => ({
 const Home: NextPage = ({
   events,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const theme = useMantineTheme();
   const { classes } = useStyles();
-  const [filteredEvents, setFilteredEvents] = useState(events);
-
-  const filterEvents = (area: string) => {
-    if (filteredEvents[0]?.location === area) {
-      setFilteredEvents(events);
-      console.log(filteredEvents);
-    } else {
-      setFilteredEvents(
-        filteredEvents.filter((item: any) => item.location === area)
-      );
-      console.log(filteredEvents);
-    }
-  };
 
   return (
     <>
-      <div>
-        <Text component="h3">Filter by metro area</Text>
-        <Button
-          variant="gradient"
-          gradient={{ from: "#c0362c", to: "yellow" }}
-          onClick={() => filterEvents("bay-area")}
-        >
-          Bay Area
-        </Button>
-        &nbsp;
-        <Button
-          variant="gradient"
-          gradient={{ from: "#005A9C", to: "cyan" }}
-          onClick={() => filterEvents("la")}
-        >
-          LA
-        </Button>
-        &nbsp;
-        <Button
-          variant="gradient"
-          gradient={{ from: "green", to: "yellow" }}
-          onClick={() => filterEvents("other")}
-        >
-          Other
-        </Button>
-      </div>
       <Grid gutter={32}>
         <Grid.Col className={classes.calendar} xs={12} sm={9}>
-          {filteredEvents ? <Calendar events={filteredEvents} /> : <Loader />}
+          {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
         <Grid.Col xs={12} sm={3}>
           <div>
