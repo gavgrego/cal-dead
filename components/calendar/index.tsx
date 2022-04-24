@@ -1,7 +1,7 @@
 import { Calendar as Cal, dateFnsLocalizer, Event } from "react-big-calendar";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import enUS from "date-fns/locale/en-US";
-import React, { useState, useRef, Ref } from "react";
+import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import {
   Tooltip,
@@ -35,6 +35,11 @@ const useStyles = createStyles((theme) => ({
   calendarFilters: {
     backgroundColor: theme.colors.gray,
     textAlign: "right",
+
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      textAlign: "center",
+      marginBottom: "1rem",
+    },
   },
   dialog: {
     background:

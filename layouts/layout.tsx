@@ -3,6 +3,7 @@ import Header from "../components/global/header";
 import Head from "next/head";
 import Footer from "../components/global/footer";
 import { createStyles } from "@mantine/core";
+import { useMedia } from "react-use";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -10,11 +11,17 @@ const useStyles = createStyles((theme) => ({
     minHeight: "100%",
     padding: "1rem 3rem",
     marginTop: "75px",
+
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      padding: "1rem",
+    },
   },
 }));
 
 const Layout: React.FC = ({ children }): JSX.Element => {
   const { classes } = useStyles();
+  const isMobile = useMedia("(max-width: 700px)");
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
