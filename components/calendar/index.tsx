@@ -139,37 +139,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
   };
 
   return (
-    <div
-      ref={scrollRef}
-      onScroll={closeDialogOnScroll}
-      className={classes.calendarContain}
-      style={{ overflowX: "auto" }}
-    >
-      {isMobile && (
-        <Dialog
-          position={{ bottom: 16, right: 16 }}
-          className={classes.dialog}
-          transition={"slide-up"}
-          opened={opened}
-          onClose={() => setOpened(false)}
-          size="md"
-          radius="sm"
-          shadow="xl"
-          p={".5rem"}
-        >
-          <Text>
-            Scroll
-            <Text component="span" size="xl">
-              &nbsp;➡️&nbsp;
-            </Text>
-            on your
-            <Text component="span" size="xl">
-              &nbsp;📱&nbsp;
-            </Text>
-            for the full calendar
-          </Text>
-        </Dialog>
-      )}
+    <>
       {/* TODO: Put this in its own component */}
       <div className={classes.calendarFilters}>
         <Text component="h3">Filter by metro area:</Text>
@@ -206,30 +176,65 @@ const Calendar: React.FC<Props> = ({ events }) => {
           Reset
         </Button>
       </div>
-      <Cal
-        className={classes.calendar}
-        localizer={localizer}
-        events={filteredEvents}
-        startAccessor="start"
-        endAccessor="end"
-        showAllEvents={true}
-        style={{ height: 650 }}
-        views={["month"]}
-        components={{
-          eventWrapper: (wrapper) => (
-            <Tooltip
-              className={`${classes.event} ${wrapper.event.location}`}
-              color="dark"
-              label={`${wrapper.event.title}`}
-            >
-              <span onClick={() => router.push(`/events/${wrapper.event.id}`)}>
-                {wrapper.event.title}
-              </span>
-            </Tooltip>
-          ),
-        }}
-      />
-    </div>
+      <div
+        ref={scrollRef}
+        onScroll={closeDialogOnScroll}
+        className={classes.calendarContain}
+        style={{ overflowX: "auto" }}
+      >
+        {isMobile && (
+          <Dialog
+            position={{ bottom: 16, right: 16 }}
+            className={classes.dialog}
+            transition={"slide-up"}
+            opened={opened}
+            onClose={() => setOpened(false)}
+            size="md"
+            radius="sm"
+            shadow="xl"
+            p={".5rem"}
+          >
+            <Text>
+              Scroll
+              <Text component="span" size="xl">
+                &nbsp;➡️&nbsp;
+              </Text>
+              on your
+              <Text component="span" size="xl">
+                &nbsp;📱&nbsp;
+              </Text>
+              for the full calendar
+            </Text>
+          </Dialog>
+        )}
+
+        <Cal
+          className={classes.calendar}
+          localizer={localizer}
+          events={filteredEvents}
+          startAccessor="start"
+          endAccessor="end"
+          showAllEvents={true}
+          style={{ height: 650 }}
+          views={["month"]}
+          components={{
+            eventWrapper: (wrapper) => (
+              <Tooltip
+                className={`${classes.event} ${wrapper.event.location}`}
+                color="dark"
+                label={`${wrapper.event.title}`}
+              >
+                <span
+                  onClick={() => router.push(`/events/${wrapper.event.id}`)}
+                >
+                  {wrapper.event.title}
+                </span>
+              </Tooltip>
+            ),
+          }}
+        />
+      </div>
+    </>
   );
 };
 
