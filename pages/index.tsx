@@ -15,7 +15,7 @@ import Weather from "../components/weather";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
-    // marginBottom: `${theme.spacing.sm}rem`,
+    marginBottom: `${theme.spacing.xs}rem`,
   },
 }));
 
