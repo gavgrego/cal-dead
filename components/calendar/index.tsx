@@ -180,32 +180,6 @@ const Calendar: React.FC<Props> = ({ events }) => {
         className={classes.calendarContain}
         style={{ overflowX: "auto" }}
       >
-        {isMobile && (
-          <Dialog
-            position={{ bottom: 16 }}
-            className={classes.dialog}
-            transition={"slide-up"}
-            opened={opened}
-            onClose={() => setOpened(false)}
-            size="md"
-            radius="sm"
-            shadow="xl"
-            p={".5rem"}
-          >
-            <Text>
-              Scroll
-              <Text component="span" size="xl">
-                &nbsp;➡️&nbsp;
-              </Text>
-              on your
-              <Text component="span" size="xl">
-                &nbsp;📱&nbsp;
-              </Text>
-              for the full calendar
-            </Text>
-          </Dialog>
-        )}
-
         <Cal
           className={classes.calendar}
           localizer={localizer}
