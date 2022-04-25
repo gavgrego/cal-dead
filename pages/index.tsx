@@ -15,7 +15,7 @@ import Weather from "../components/weather";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
-    marginBottom: `${theme.spacing.sm}rem`,
+    // marginBottom: `${theme.spacing.sm}rem`,
   },
 }));
 
@@ -28,7 +28,7 @@ const Home: NextPage = ({
   return (
     <>
       <Grid mb={16} gutter={32}>
-        <Grid.Col className={classes.calendar} xs={12} sm={9}>
+        <Grid.Col p={0} className={classes.calendar} xs={12} sm={9}>
           {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
         <Grid.Col xs={12} sm={3}>

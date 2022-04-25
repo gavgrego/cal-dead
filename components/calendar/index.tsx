@@ -15,8 +15,6 @@ import { useMedia, useLocalStorage } from "react-use";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
-    minWidth: 700,
-
     "& .rbc-toolbar-label": {
       fontSize: "2rem",
       color: theme.colors.dark[4],
@@ -184,7 +182,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
       >
         {isMobile && (
           <Dialog
-            position={{ bottom: 16, right: 16 }}
+            position={{ bottom: 16 }}
             className={classes.dialog}
             transition={"slide-up"}
             opened={opened}
@@ -215,7 +213,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
           startAccessor="start"
           endAccessor="end"
           showAllEvents={true}
-          style={{ height: 650 }}
+          style={{ height: 600 }}
           views={["month"]}
           components={{
             eventWrapper: (wrapper) => (
