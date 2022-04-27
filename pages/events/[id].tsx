@@ -5,27 +5,54 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
-import { Grid } from "@mantine/core";
+import { Grid, Text, createStyles, Anchor } from "@mantine/core";
 import Image from "next/image";
+import { format } from "date-fns";
+
+const useStyles = createStyles(() => ({
+  title: {
+    lineHeight: 1.25,
+  },
+}));
+
 const Event: NextPage = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { classes } = useStyles();
+  const startDate = format(new Date(event.attributes.start), "LLLL d");
+  const startTime = format(new Date(event.attributes.start), "p");
+
   return (
-    <Grid mx={16} mt={32}>
-      {event.attributes.Image.data && (
-        <Grid.Col mb={16} xs={12} sm={3}>
-          {event.attributes.Image.data && (
-            <Image
-              alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
-              layout="responsive"
-              width={event.attributes.Image.data.attributes.width}
-              height={event.attributes.Image.data.attributes.height}
-              objectPosition="relative"
-              src={event.attributes.Image.data.attributes.url}
-            />
-          )}
-        </Grid.Col>
-      )}
+    <Grid mx={16} gutter={32} mt={32}>
+      <Grid.Col mb={16} xs={12} sm={3}>
+        <Text mt={0} component="h1" size="xl" className={classes.title}>
+          {event.attributes.name}
+        </Text>
+
+        <Text mt={0} component="p" size="lg">
+          📅&nbsp;{startDate} @ {startTime}
+        </Text>
+
+        {event.attributes.Tickets && (
+          <Anchor target={"_blank"} href={event.attributes.Tickets}>
+            <Text mt={0} component="p" size="lg">
+              🎟️&nbsp;TICKETS
+            </Text>
+          </Anchor>
+        )}
+
+        {event.attributes.Image.data && (
+          <Image
+            alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
+            layout="responsive"
+            width={event.attributes.Image.data.attributes.width}
+            height={event.attributes.Image.data.attributes.height}
+            objectPosition="relative"
+            src={event.attributes.Image.data.attributes.url}
+          />
+        )}
+      </Grid.Col>
+
       <Grid.Col mb={16} xs={12} sm={9}>
         {event.attributes.Content}
         {/* tickets link */}
