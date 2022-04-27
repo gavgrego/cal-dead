@@ -84,8 +84,8 @@ const Home: NextPage = ({
         <Grid.Col xs={12} sm={3}>
           <div>
             <Text component="h3">Weather Report Suite:</Text>
-            {weatherCities.map((city) => {
-              return <Weather {...city} />;
+            {weatherCities.map((city, index) => {
+              return <Weather key={index} {...city} />;
             })}
           </div>
           <br />
