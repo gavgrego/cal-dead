@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colors.gray[0],
     minHeight: "100%",
     padding: "1rem 3rem",
-    marginTop: "75px",
+    marginTop: "85px",
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem",
