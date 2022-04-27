@@ -9,11 +9,11 @@ const useStyles = createStyles((theme) => ({
   content: {
     backgroundColor: theme.colors.gray[0],
     minHeight: "100%",
-    padding: "1rem 3rem",
-    marginTop: "85px",
+    marginTop: "100px",
 
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      padding: "1rem",
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      padding: "1rem 3rem",
+      marginTop: "75px",
     },
   },
 }));

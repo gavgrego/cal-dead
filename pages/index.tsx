@@ -77,8 +77,8 @@ const Home: NextPage = ({
 
   return (
     <>
-      <Grid mb={16}>
-        <Grid.Col px={16} className={classes.calendar} xs={12} sm={9}>
+      <Grid px={0} mb={16}>
+        <Grid.Col px={0} className={classes.calendar} xs={12} sm={9}>
           {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
         <Grid.Col px={16} xs={12} sm={3}>
