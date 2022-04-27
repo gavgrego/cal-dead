@@ -77,11 +77,11 @@ const Home: NextPage = ({
 
   return (
     <>
-      <Grid mb={16} gutter={16}>
-        <Grid.Col px={0} className={classes.calendar} xs={12} sm={9}>
+      <Grid mb={16}>
+        <Grid.Col px={16} className={classes.calendar} xs={12} sm={9}>
           {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
-        <Grid.Col xs={12} sm={3}>
+        <Grid.Col px={16} xs={12} sm={3}>
           <div>
             <Text component="h3">Weather Report Suite:</Text>
             {weatherCities.map((city, index) => {
