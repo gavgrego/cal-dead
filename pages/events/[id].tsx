@@ -11,24 +11,22 @@ const Event: NextPage = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Grid gutter={32} mt={32}>
+    <Grid mx={16} mt={32}>
       {event.attributes.Image.data && (
-        <Grid.Col xs={12} sm={3}>
+        <Grid.Col mb={16} xs={12} sm={3}>
           {event.attributes.Image.data && (
-            <div style={{ width: "100%", height: "100vh" }}>
-              <Image
-                alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
-                layout="responsive"
-                width={event.attributes.Image.data.attributes.width}
-                height={event.attributes.Image.data.attributes.height}
-                objectPosition="relative"
-                src={event.attributes.Image.data.attributes.url}
-              />
-            </div>
+            <Image
+              alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
+              layout="responsive"
+              width={event.attributes.Image.data.attributes.width}
+              height={event.attributes.Image.data.attributes.height}
+              objectPosition="relative"
+              src={event.attributes.Image.data.attributes.url}
+            />
           )}
         </Grid.Col>
       )}
-      <Grid.Col xs={12} sm={9}>
+      <Grid.Col mb={16} xs={12} sm={9}>
         {event.attributes.Content}
         {/* tickets link */}
         {/* start time */}
