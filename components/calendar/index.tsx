@@ -113,14 +113,10 @@ const Calendar: React.FC<Props> = ({ events }) => {
   const { classes } = useStyles();
 
   const filterEvents = (area: string) => {
-    if (filteredEvents[0].location === area) {
-      setFilteredEvents(events);
-    } else {
-      const categoryFilteredEvents = events.filter(
-        (item: any) => item.location === area
-      );
-      setFilteredEvents(categoryFilteredEvents);
-    }
+    const categoryFilteredEvents = events.filter(
+      (item: any) => item.location === area
+    );
+    setFilteredEvents(categoryFilteredEvents);
   };
 
   return (
