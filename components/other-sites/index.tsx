@@ -37,11 +37,8 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
-          <Anchor
-            href="https://www.instagram.com/accidentalstealie/"
-            target="_blank"
-          >
-            Accidental Stealie
+          <Anchor href="http://gdradio.net/" target="_blank">
+            GD Radio
           </Anchor>
         </List.Item>
         <List.Item>

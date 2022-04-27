@@ -105,25 +105,12 @@ type Props = {
 };
 
 const Calendar: React.FC<Props> = ({ events }) => {
-  const [dialogValue, setDialogValue] = useLocalStorage<boolean>(
-    "mobile-dialog",
-    false
-  );
   const [filteredEvents, setFilteredEvents] = useState(events);
   console.log(events);
   const theme = useMantineTheme();
   const isMobile = useMedia("(max-width: 700px)");
   const router = useRouter();
   const { classes } = useStyles();
-  const [opened, setOpened] = useState(true);
-  const scrollRef = useRef(null);
-
-  // this is firing sometimes when the calendar loads in, firing the onscroll (not always scrolling with mouse) need to defer until page is
-  const closeDialogOnScroll = () => {
-    setTimeout(() => {
-      setOpened(false);
-    }, 500);
-  };
 
   const filterEvents = (area: string) => {
     if (filteredEvents[0].location === area) {
@@ -174,12 +161,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
           Reset
         </Button>
       </div>
-      <div
-        ref={scrollRef}
-        onScroll={closeDialogOnScroll}
-        className={classes.calendarContain}
-        style={{ overflowX: "auto" }}
-      >
+      <div className={classes.calendarContain} style={{ overflowX: "auto" }}>
         <Cal
           className={classes.calendar}
           localizer={localizer}
