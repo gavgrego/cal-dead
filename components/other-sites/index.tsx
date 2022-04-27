@@ -7,6 +7,16 @@ const OtherSites: React.FC = (): JSX.Element => {
       <Text component="h3">Other people and places we like:</Text>
       <List>
         <List.Item>
+          <Anchor href="http://gdradio.net/" target="_blank">
+            GD Radio
+          </Anchor>
+        </List.Item>
+        <List.Item>
+          <Anchor href="https://cloudsurfing.gdhour.com/" target="_blank">
+            David Gans
+          </Anchor>
+        </List.Item>
+        <List.Item>
           <Anchor href="https://www.solfoodrestaurant.com/" target="_blank">
             Sol Food
           </Anchor>
@@ -17,8 +27,8 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
-          <Anchor href="https://cloudsurfing.gdhour.com/" target="_blank">
-            David Gans
+          <Anchor href="https://www.lastprisonerproject.org/" target="_blank">
+            Last Prisoner Project
           </Anchor>
         </List.Item>
         <List.Item>
@@ -27,18 +37,8 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
-          <Anchor href="https://talkingterps.com/" target="_blank">
-            Talking Terps
-          </Anchor>
-        </List.Item>
-        <List.Item>
           <Anchor href="https://www.marinbike.org/" target="_blank">
             Marin County Bicycle Coalition
-          </Anchor>
-        </List.Item>
-        <List.Item>
-          <Anchor href="http://gdradio.net/" target="_blank">
-            GD Radio
           </Anchor>
         </List.Item>
         <List.Item>
