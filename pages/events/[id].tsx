@@ -29,7 +29,7 @@ const Event: NextPage = ({
           {event.attributes.name}
         </Text>
 
-        <Text mt={0} component="p" size="lg">
+        <Text mt={0} mb={8} component="p" size="lg">
           📅&nbsp;{startDate} @ {startTime}
         </Text>
 
