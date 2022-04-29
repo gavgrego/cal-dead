@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createStyles } from "@mantine/core";
+import { createStyles, Text } from "@mantine/core";
 import Anchor from "../anchor";
 
 const useStyles = createStyles((theme) => ({
@@ -24,11 +24,11 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     zIndex: 9,
   },
-  links: {
-    display: "flex",
-    flexDirection: "row",
+  name: {
+    color: theme.colors.orange,
+    fontWeight: 700,
     position: "absolute",
-    left: "8rem",
+    left: "7rem",
   },
   logo: {
     fontSize: "5rem",
@@ -44,23 +44,13 @@ const Header: React.FC = () => {
   return (
     <div className={classes.header}>
       <Link href="/" passHref>
-        <Anchor className={classes.logo}>
-          <span>🌁</span>
-        </Anchor>
+        <>
+          <Anchor className={classes.logo}>
+            <span>🌁</span>
+          </Anchor>
+          <Text className={classes.name}>Golden State Dead</Text>
+        </>
       </Link>
-      <div className={classes.links}>
-        <Link href="/about" passHref>
-          <Anchor>About</Anchor>
-        </Link>
-        &nbsp; &nbsp; &nbsp;
-        <Anchor href="https://discord.gg/FswagXhdZy" target="_blank">
-          Discord
-        </Anchor>
-        {/* &nbsp; &nbsp; &nbsp;
-        <Link href="#" passHref>
-          <Anchor>Blog</Anchor>
-        </Link> */}
-      </div>
     </div>
   );
 };

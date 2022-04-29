@@ -5,17 +5,16 @@ import {
   Anchor,
   createStyles,
 } from "@mantine/core";
-import Weather from "../../weather";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   footer: {
     padding: `${theme.spacing.xs}rem`,
     width: "100%",
-    position: "absolute",
     background:
       "linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706)",
     backgroundSize: " 600% 100%",
-    animation: "gradient 4.5s linear infinite",
+    animation: "gradient 6.5s linear infinite",
     animationDirection: "alternate",
     "@keyframes gradient": {
       "0%": {
@@ -48,6 +47,21 @@ const useStyles = createStyles((theme) => ({
       fontSize: "1.5rem",
     },
   },
+  copyLarge: {
+    color: "white",
+    fontSize: "1rem",
+    fontWeight: "bold",
+
+    a: {
+      fontSize: "1rem",
+      transition: "opacity .3s ease",
+      textDecoration: "none",
+
+      "&:hover": {
+        opacity: ".7",
+      },
+    },
+  },
 }));
 
 const Footer: React.FC = () => {
@@ -59,7 +73,22 @@ const Footer: React.FC = () => {
       style={{ backgroundColor: theme.colors.orange[0] }}
     >
       <Grid mx={0}>
-        <Grid.Col className={classes.content} span={12}>
+        <Grid.Col span={12}>
+          <Text className={classes.copyLarge}>
+            <Link href="/about" passHref>
+              <Anchor color={"white"}>About</Anchor>
+            </Link>
+            &nbsp; &nbsp; &nbsp;
+            <Anchor
+              color={"white"}
+              href="https://discord.gg/FswagXhdZy"
+              target="_blank"
+            >
+              Discord
+            </Anchor>
+          </Text>
+        </Grid.Col>
+        <Grid.Col mt={32} className={classes.content} span={12}>
           <Text className={classes.copy}>
             📧&nbsp;
             <Anchor
@@ -77,7 +106,6 @@ const Footer: React.FC = () => {
             <Anchor
               color={"white"}
               href="https://nextjs.org/"
-              className="underline"
               target="_blank"
               rel="noreferrer"
             >
@@ -87,7 +115,6 @@ const Footer: React.FC = () => {
             <Anchor
               color={"white"}
               href="https://strapi.io/"
-              className="underline"
               target="_blank"
               rel="noreferrer"
             >

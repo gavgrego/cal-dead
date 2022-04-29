@@ -5,7 +5,14 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
-import { Grid, Text, createStyles, Anchor } from "@mantine/core";
+import {
+  Grid,
+  Text,
+  createStyles,
+  Anchor,
+  Button,
+  useMantineTheme,
+} from "@mantine/core";
 import Image from "next/image";
 import { format } from "date-fns";
 
@@ -13,12 +20,17 @@ const useStyles = createStyles(() => ({
   title: {
     lineHeight: 1.25,
   },
+  image: {
+    marginTop: "2rem",
+  },
 }));
 
 const Event: NextPage = ({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
+
   const startDate = format(new Date(event.attributes.start), "LLLL d");
   const startTime = format(new Date(event.attributes.start), "p");
 
@@ -35,21 +47,23 @@ const Event: NextPage = ({
 
         {event.attributes.Tickets && (
           <Anchor target={"_blank"} href={event.attributes.Tickets}>
-            <Text mt={0} component="p" size="lg">
-              🎟️&nbsp;TICKETS
-            </Text>
+            <Button style={{ backgroundColor: theme.colors.orange[0] }}>
+              TICKETS
+            </Button>
           </Anchor>
         )}
 
         {event.attributes.Image.data && (
-          <Image
-            alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
-            layout="responsive"
-            width={event.attributes.Image.data.attributes.width}
-            height={event.attributes.Image.data.attributes.height}
-            objectPosition="relative"
-            src={event.attributes.Image.data.attributes.url}
-          />
+          <div className={classes.image}>
+            <Image
+              alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
+              layout="responsive"
+              width={event.attributes.Image.data.attributes.width}
+              height={event.attributes.Image.data.attributes.height}
+              objectPosition="relative"
+              src={event.attributes.Image.data.attributes.url}
+            />
+          </div>
         )}
       </Grid.Col>
 

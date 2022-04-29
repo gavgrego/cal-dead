@@ -16,6 +16,13 @@ const useStyles = createStyles((theme) => ({
       marginTop: "75px",
     },
   },
+  contain: {
+    backgroundColor: theme.colors.gray,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
 }));
 
 const Layout: React.FC = ({ children }): JSX.Element => {
@@ -23,7 +30,7 @@ const Layout: React.FC = ({ children }): JSX.Element => {
   const isMobile = useMedia("(max-width: 700px)");
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={classes.contain}>
       <Head>
         <title>Golden State Dead</title>
         <meta
