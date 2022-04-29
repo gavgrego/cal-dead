@@ -47,8 +47,8 @@ const Header: React.FC = () => {
         <Anchor className={classes.logo}>
           <span>🌁</span>
         </Anchor>
-        <Text className={classes.name}>Golden State Dead</Text>
       </Link>
+      <Text className={classes.name}>Golden State Dead</Text>
     </div>
   );
 };
