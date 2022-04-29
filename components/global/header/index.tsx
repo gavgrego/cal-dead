@@ -44,12 +44,10 @@ const Header: React.FC = () => {
   return (
     <div className={classes.header}>
       <Link href="/" passHref>
-        <>
-          <Anchor className={classes.logo}>
-            <span>🌁</span>
-          </Anchor>
-          <Text className={classes.name}>Golden State Dead</Text>
-        </>
+        <Anchor className={classes.logo}>
+          <span>🌁</span>
+        </Anchor>
+        <Text className={classes.name}>Golden State Dead</Text>
       </Link>
     </div>
   );
