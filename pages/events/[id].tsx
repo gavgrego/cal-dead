@@ -15,6 +15,7 @@ import {
 } from "@mantine/core";
 import Image from "next/image";
 import { format } from "date-fns";
+import ReactMarkdown from "react-markdown";
 
 const useStyles = createStyles(() => ({
   title: {
@@ -22,6 +23,11 @@ const useStyles = createStyles(() => ({
   },
   image: {
     marginTop: "2rem",
+  },
+  mdContent: {
+    img: {
+      width: "100%",
+    },
   },
 }));
 
@@ -68,7 +74,9 @@ const Event: NextPage = ({
       </Grid.Col>
 
       <Grid.Col mb={16} xs={12} sm={9}>
-        {event.attributes.Content}
+        <ReactMarkdown className={classes.mdContent}>
+          {event.attributes.Content}
+        </ReactMarkdown>
         {/* tickets link */}
         {/* start time */}
 
