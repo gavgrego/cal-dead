@@ -27,6 +27,9 @@ button {
   font-family: "Rubik" !important;
 }
 
+.rbc-toolbar .rbc-toolbar-label {
+  text-align: right !important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
