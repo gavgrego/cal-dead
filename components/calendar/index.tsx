@@ -27,7 +27,6 @@ const useStyles = createStyles((theme) => ({
       color: theme.colors.dark[4],
       textTransform: "uppercase",
       letterSpacing: "2px",
-      textAlign: "right",
     },
     "& .rbc-header": {
       color: theme.colors.dark[4],

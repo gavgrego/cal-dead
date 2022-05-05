@@ -28,8 +28,9 @@ button {
 }
 
 .rbc-toolbar .rbc-toolbar-label {
-  text-align: right !important;
+  text-align: center !important;
+
+  @media (min-width: 768px) {
+    text-align: right !important;
+  }
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
