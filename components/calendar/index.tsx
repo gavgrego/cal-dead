@@ -1,7 +1,12 @@
-import { Calendar as Cal, dateFnsLocalizer, Event } from "react-big-calendar";
+import {
+  Calendar as Cal,
+  Culture,
+  dateFnsLocalizer,
+  Event,
+} from "react-big-calendar";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import enUS from "date-fns/locale/en-US";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import {
   Tooltip,
@@ -10,6 +15,8 @@ import {
   Text,
   Button,
   useMantineTheme,
+  Grid,
+  Drawer,
 } from "@mantine/core";
 import { useMedia, useLocalStorage } from "react-use";
 
@@ -20,23 +27,28 @@ const useStyles = createStyles((theme) => ({
       color: theme.colors.dark[4],
       textTransform: "uppercase",
       letterSpacing: "2px",
+      textAlign: "right",
     },
     "& .rbc-header": {
       color: theme.colors.dark[4],
     },
   },
-  calendarContain: {
-    // background:"rgb(0,0,0)",
-    // background:
-    // "linear-gradient(90deg, rgba(0,0,0,0) 65%, rgba(255,255,255,1) 100%)",
-  },
   calendarFilters: {
     backgroundColor: theme.colors.gray,
     textAlign: "right",
+    marginBottom: "1rem",
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       textAlign: "center",
-      marginBottom: "1rem",
+    },
+  },
+  contain: {
+    textAlign: "center",
+    justifyContent: "center",
+
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      textAlign: "right",
+      justifyContent: "flex-end",
     },
   },
   dialog: {
@@ -59,7 +71,6 @@ const useStyles = createStyles((theme) => ({
     minHeight: 0,
   },
   event: {
-    // backgroundColor: `${theme.colors.orange}`,
     borderRadius: ".25rem",
     color: "white",
     cursor: "pointer",
@@ -98,20 +109,25 @@ const localizer = dateFnsLocalizer({
 export interface TEvent extends Event {
   id: number;
   location: string;
+  slug: string;
 }
 
 type Props = {
   events: TEvent[];
 };
 
+const formats = {
+  weekdayFormat: (date: Date, culture: Culture | undefined, localizer: any) =>
+    localizer.format(date, "eee", culture),
+};
+
 const Calendar: React.FC<Props> = ({ events }) => {
   const [filteredEvents, setFilteredEvents] = useState(events);
-  console.log(events);
   const theme = useMantineTheme();
   const isMobile = useMedia("(max-width: 700px)");
   const router = useRouter();
   const { classes } = useStyles();
-
+  console.log(events);
   const filterEvents = (area: string) => {
     const categoryFilteredEvents = events.filter(
       (item: any) => item.location === area
@@ -120,8 +136,9 @@ const Calendar: React.FC<Props> = ({ events }) => {
   };
 
   return (
-    <>
+    <Grid mx={4} className={classes.contain}>
       {/* TODO: Put this in its own component */}
+
       <div className={classes.calendarFilters}>
         <Text component="h3">Filter by metro area:</Text>
         <Button
@@ -157,8 +174,9 @@ const Calendar: React.FC<Props> = ({ events }) => {
           Reset
         </Button>
       </div>
-      <div className={classes.calendarContain} style={{ overflowX: "auto" }}>
+      <div style={{ overflowX: "auto", width: "100%" }}>
         <Cal
+          formats={formats}
           className={classes.calendar}
           localizer={localizer}
           events={filteredEvents}
@@ -176,7 +194,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
                 label={`${wrapper.event.title}`}
               >
                 <span
-                  onClick={() => router.push(`/events/${wrapper.event.id}`)}
+                  onClick={() => router.push(`/events/${wrapper.event.slug}`)}
                 >
                   {wrapper.event.title}
                 </span>
@@ -185,7 +203,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
           }}
         />
       </div>
-    </>
+    </Grid>
   );
 };
 

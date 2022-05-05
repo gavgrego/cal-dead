@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createStyles, Text } from "@mantine/core";
+import { createStyles, Text, useMantineTheme } from "@mantine/core";
 import Anchor from "../anchor";
 
 const useStyles = createStyles((theme) => ({
@@ -40,16 +40,18 @@ const useStyles = createStyles((theme) => ({
 
 const Header: React.FC = () => {
   const { classes } = useStyles();
-
+  const theme = useMantineTheme();
   return (
-    <div className={classes.header}>
-      <Link href="/" passHref>
-        <Anchor className={classes.logo}>
-          <span>🌁</span>
-        </Anchor>
-      </Link>
-      <Text className={classes.name}>Golden State Dead</Text>
-    </div>
+    <>
+      <div className={classes.header}>
+        <Link href="/" passHref>
+          <Anchor className={classes.logo}>
+            <span>🌁</span>
+          </Anchor>
+        </Link>
+        {/* <Text className={classes.name}>Golden State Dead</Text> */}
+      </div>
+    </>
   );
 };
 

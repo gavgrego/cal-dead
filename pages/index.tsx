@@ -11,6 +11,7 @@ import {
 import OtherSites from "../components/other-sites";
 import { useState, useMemo } from "react";
 import Weather from "../components/weather";
+import weatherLocations from "../data/weather-locations";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
@@ -30,55 +31,14 @@ const Home: NextPage = ({
   const { classes } = useStyles();
 
   const weatherCities = useMemo(() => {
-    return [
-      {
-        sr: true,
-        city: "San Rafael",
-        location: "lat=37.9735346&lon=-122.5310874",
-      },
-      {
-        city: "Mt. Tamalpais",
-        location: "lat=37.9235&lon=-122.5965",
-      },
-      {
-        city: "San Francisco",
-        location: "lat=37.7749&lon=-122.4194",
-      },
-      {
-        city: "Oakland",
-        location: "lat=37.8044&lon=-122.2712",
-      },
-      {
-        city: "Santa Cruz",
-        location: "lat=36.9741&lon=-122.0308",
-      },
-      {
-        city: "San Luis Obispo",
-        location: "lat=35.2828&lon=-120.6596",
-      },
-      {
-        city: "Los Angeles",
-        location: "lat=34.0522&lon=-118.2437",
-      },
-      {
-        city: "San Diego",
-        location: "lat=32.7157&lon=-117.1611",
-      },
-      {
-        city: "Lake Tahoe",
-        location: "lat=39.0968&lon=-120.0324",
-      },
-      {
-        city: "Humboldt County",
-        location: "lat=40.7450&lon=-123.8695",
-      },
-    ];
+    return weatherLocations;
   }, [Weather]);
 
   return (
     <>
       <Grid px={0} mb={16}>
-        <Grid.Col px={0} className={classes.calendar} xs={12} sm={9}>
+        <Grid.Col px={0} pb={16} className={classes.calendar} xs={12} sm={9}>
+          {/* <Text px={16}>CALIFORNIA DEAD CALENDAR</Text> */}
           {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
         <Grid.Col px={16} xs={12} sm={3}>
@@ -105,6 +65,7 @@ export const getStaticProps: GetStaticProps = async () => {
     event.end = new Date(event.attributes.end).toJSON();
     event.title = event.attributes.name;
     event.location = event.attributes.location;
+    event.slug = event.attributes.slug;
   });
 
   return {
