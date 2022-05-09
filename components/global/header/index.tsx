@@ -5,7 +5,7 @@ import Anchor from "../anchor";
 const useStyles = createStyles((theme) => ({
   header: {
     alignItems: "center",
-    background: "white",
+    background: theme.colors.gray[1],
     borderTop: 0,
     borderLeft: 0,
     borderRight: 0,

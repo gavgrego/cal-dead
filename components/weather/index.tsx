@@ -6,7 +6,7 @@ import { wrap } from "module";
 const useStyles = createStyles((theme) => ({
   card: {
     alignItems: "center",
-    border: `1px solid ${theme.colors.gray[3]}`,
+    border: `1px solid ${theme.colors.gray[0]}`,
     display: "flex",
     justifyContent: "space-between",
     marginBottom: ".25rem",

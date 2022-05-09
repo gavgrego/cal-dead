@@ -33,7 +33,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   calendarFilters: {
-    backgroundColor: theme.colors.gray,
+    backgroundColor: theme.colors.gray[0],
     textAlign: "right",
     marginBottom: "1rem",
 

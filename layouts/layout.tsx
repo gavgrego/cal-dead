@@ -18,7 +18,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   contain: {
-    backgroundColor: theme.colors.gray,
+    backgroundColor: theme.colors.gray[0],
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",

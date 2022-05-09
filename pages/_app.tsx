@@ -30,10 +30,10 @@ function MyApp({ Component, pageProps }: AppProps) {
             blue: ["#005A9C"],
             orange: ["#c0362c"],
             green: ["#40c057"],
-            gray: ["#f8f9fa"],
+            gray: ["#f8f9fa", "#3a3b3c"],
             white: ["#fff"],
           },
-
+          primaryColor: "gray",
           fontFamily: "Rubik",
           spacing: { xs: 1, sm: 1.5, md: 2, lg: 2.5, xl: 3 },
         }}
