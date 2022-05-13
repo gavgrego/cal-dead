@@ -37,6 +37,12 @@ const useStyles = createStyles((theme) => ({
     top: ".5rem",
     left: "50%",
     transform: "translateX(-50%)",
+
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      left: "1rem",
+      top: "1rem",
+      transform: "none",
+    },
   },
 }));
 
