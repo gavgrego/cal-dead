@@ -23,7 +23,7 @@ import { useMedia, useLocalStorage } from "react-use";
 const useStyles = createStyles((theme) => ({
   calendar: {
     "& .rbc-toolbar-label": {
-      fontSize: "2rem",
+      fontSize: "2.2rem",
       color: theme.colors.dark[4],
       textTransform: "uppercase",
       letterSpacing: "2px",
