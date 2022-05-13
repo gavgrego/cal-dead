@@ -5,17 +5,17 @@ import Anchor from "../anchor";
 const useStyles = createStyles((theme) => ({
   header: {
     alignItems: "center",
-    background: theme.colors.gray[1],
-    borderTop: 0,
+    // background: theme.colors.gray[1],
+    borderBottom: 0,
     borderLeft: 0,
     borderRight: 0,
-    borderBottom: "solid .3rem",
+    borderTop: "solid .5rem",
     borderImageSource:
       "linear-gradient(to right, #731ec2, #0074D9, #008000, yellow, red)",
     borderImageSlice: 1,
     display: "flex",
     flexDirection: "row",
-    height: "4rem",
+    height: "3rem",
     justifyContent: "space-between",
     padding: `${theme.spacing.xs}rem`,
     position: "fixed",
@@ -34,7 +34,9 @@ const useStyles = createStyles((theme) => ({
     fontSize: "5rem",
     lineHeight: 1,
     position: "absolute",
-    top: "1rem",
+    top: ".5rem",
+    left: "50%",
+    transform: "translateX(-50%)",
   },
 }));
 

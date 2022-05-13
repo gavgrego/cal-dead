@@ -6,6 +6,8 @@ import {
   createStyles,
 } from "@mantine/core";
 import Link from "next/link";
+import Image from "next/image";
+import InstagramIcon from "../../../assets/icons/instagram.svg";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -49,6 +51,7 @@ const useStyles = createStyles((theme) => ({
   },
   copyLarge: {
     color: "white",
+    display: "flex",
     fontSize: "1rem",
     fontWeight: "bold",
 
@@ -85,6 +88,13 @@ const Footer: React.FC = () => {
               target="_blank"
             >
               Discord
+            </Anchor>
+            &nbsp; &nbsp; &nbsp;
+            <Anchor
+              href="https://instagram.com/goldenstatedead"
+              target="_blank"
+            >
+              <Image src={InstagramIcon} height="24" width="24" />
             </Anchor>
           </Text>
         </Grid.Col>
