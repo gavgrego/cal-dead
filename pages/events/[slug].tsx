@@ -22,9 +22,9 @@ const useStyles = createStyles((theme) => ({
   title: {
     lineHeight: 1.25,
   },
-  contain: {
-    padding: "0 1rem",
-  },
+  // contain: {
+  //   padding: "0 1rem",
+  // },
   image: {
     marginTop: "2rem",
   },
@@ -44,7 +44,7 @@ const Event: NextPage = ({
   const startTime = format(new Date(event.attributes?.start), "p");
 
   return (
-    <Grid className={classes.contain}>
+    <Grid>
       <Grid.Col mb={16} xs={12} sm={3}>
         <Text mt={0} component="h1" size="xl" className={classes.title}>
           {event.attributes.name}

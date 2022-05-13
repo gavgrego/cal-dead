@@ -9,12 +9,10 @@ const useStyles = createStyles((theme) => ({
   content: {
     backgroundColor: theme.colors.gray[0],
     minHeight: "100%",
-    marginTop: "110px",
-    // padding: "1rem",
+    marginTop: "130px",
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem 3rem",
-      marginTop: "50px",
     },
   },
   contain: {
@@ -40,7 +38,6 @@ const Layout: React.FC = ({ children }): JSX.Element => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
       <section className={classes.content}>{children}</section>
       <Footer />
