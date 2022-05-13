@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
             </Anchor>
           </Text>
           <Text className={classes.copy}>
-            Made in Marin. Built with&nbsp;
+            Made in Marin County, CA. Built with&nbsp;
             <Anchor
               color={"white"}
               href="https://nextjs.org/"
