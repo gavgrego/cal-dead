@@ -27,6 +27,12 @@ const useStyles = createStyles((theme) => ({
       color: theme.colors.dark[4],
       textTransform: "uppercase",
       letterSpacing: "2px",
+      lineHeight: 1,
+
+      [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+        fontSize: "3rem",
+        padding: 0,
+      },
     },
     "& .rbc-header": {
       color: theme.colors.dark[4],
