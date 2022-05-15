@@ -12,6 +12,7 @@ import {
   Anchor,
   Button,
   useMantineTheme,
+  Paper,
 } from "@mantine/core";
 import Image from "next/image";
 import { format } from "date-fns";
@@ -53,38 +54,40 @@ const Event: NextPage = ({
   return (
     <Grid className={classes.container}>
       <Grid.Col mb={16} xs={12} sm={3}>
-        <Text mt={0} component="h1" size="xl" className={classes.title}>
-          {event.attributes.name}
-        </Text>
+        <Paper shadow="md" p={"1.5rem"} radius={4}>
+          <Text mt={0} component="h1" size="xl" className={classes.title}>
+            {event.attributes.name}
+          </Text>
 
-        <Text mt={0} mb={8} component="p" size="lg">
-          🗓️&nbsp;{startDate} @ {startTime}
-        </Text>
+          <Text mt={0} mb={8} component="p" size="lg">
+            🗓️&nbsp;{startDate} @ {startTime}
+          </Text>
 
-        <Text mt={0} mb={8} component="p" size="lg">
-          📍&nbsp;{event.attributes.venue}
-        </Text>
+          <Text mt={0} mb={8} component="p" size="lg">
+            📍&nbsp;{event.attributes.venue}
+          </Text>
 
-        {event.attributes.Tickets && (
-          <Anchor target={"_blank"} href={event.attributes.Tickets}>
-            <Button style={{ backgroundColor: theme.colors.orange[0] }}>
-              TICKETS
-            </Button>
-          </Anchor>
-        )}
+          {event.attributes.Tickets && (
+            <Anchor target={"_blank"} href={event.attributes.Tickets}>
+              <Button style={{ backgroundColor: theme.colors.orange[0] }}>
+                TICKETS
+              </Button>
+            </Anchor>
+          )}
 
-        {event.attributes.Image.data && (
-          <div className={classes.image}>
-            <Image
-              alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
-              layout="responsive"
-              width={event.attributes.Image.data.attributes.width}
-              height={event.attributes.Image.data.attributes.height}
-              objectPosition="relative"
-              src={event.attributes.Image.data.attributes.url}
-            />
-          </div>
-        )}
+          {event.attributes.Image.data && (
+            <div className={classes.image}>
+              <Image
+                alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
+                layout="responsive"
+                width={event.attributes.Image.data.attributes.width}
+                height={event.attributes.Image.data.attributes.height}
+                objectPosition="relative"
+                src={event.attributes.Image.data.attributes.url}
+              />
+            </div>
+          )}
+        </Paper>
       </Grid.Col>
 
       <Grid.Col mb={16} xs={12} sm={9} className={classes.infoColumn}>
