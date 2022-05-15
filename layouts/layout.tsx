@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/global/header";
 import Head from "next/head";
 import Footer from "../components/global/footer";
 import { createStyles, Grid } from "@mantine/core";
 import { useMedia } from "react-use";
+import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -13,7 +14,6 @@ const useStyles = createStyles((theme) => ({
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem 3rem",
-      marginTop: "80px",
     },
   },
   contain: {
@@ -23,11 +23,26 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-between",
   },
+  contentHome: {
+    backgroundColor: theme.colors.gray[0],
+    minHeight: "100%",
+    marginTop: "130px",
+
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      padding: "1rem 3rem",
+      marginTop: "80px",
+    },
+  },
 }));
 
 const Layout: React.FC = ({ children }): JSX.Element => {
   const { classes } = useStyles();
-  const isMobile = useMedia("(max-width: 700px)");
+  const router = useRouter();
+  const [isHome, setIsHome] = useState<string>(router.pathname);
+
+  useEffect(() => {
+    setIsHome(router.pathname);
+  }, [router]);
 
   return (
     <div className={classes.contain}>
@@ -40,7 +55,11 @@ const Layout: React.FC = ({ children }): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <section className={classes.content}>{children}</section>
+      <section
+        className={isHome === "/" ? classes.contentHome : classes.content}
+      >
+        {children}
+      </section>
       <Footer />
     </div>
   );

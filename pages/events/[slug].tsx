@@ -19,14 +19,21 @@ import ReactMarkdown from "react-markdown";
 import qs from "qs";
 
 const useStyles = createStyles((theme) => ({
+  container: {
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      margin: "0 1rem",
+    },
+  },
   title: {
     lineHeight: 1.25,
   },
-  // contain: {
-  //   padding: "0 1rem",
-  // },
   image: {
     marginTop: "2rem",
+  },
+  infoColumn: {
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      paddingLeft: "2rem",
+    },
   },
   mdContent: {
     img: {
@@ -44,7 +51,7 @@ const Event: NextPage = ({
   const startTime = format(new Date(event.attributes?.start), "p");
 
   return (
-    <Grid mx={12}>
+    <Grid className={classes.container}>
       <Grid.Col mb={16} xs={12} sm={3}>
         <Text mt={0} component="h1" size="xl" className={classes.title}>
           {event.attributes.name}
@@ -80,7 +87,7 @@ const Event: NextPage = ({
         )}
       </Grid.Col>
 
-      <Grid.Col mb={16} xs={12} sm={9}>
+      <Grid.Col mb={16} xs={12} sm={9} className={classes.infoColumn}>
         <ReactMarkdown className={classes.mdContent}>
           {event.attributes.Content}
         </ReactMarkdown>
