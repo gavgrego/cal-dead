@@ -75,6 +75,7 @@ const Event: NextPage = ({
               height={event.attributes.Image.data.attributes.height}
               objectPosition="relative"
               src={event.attributes.Image.data.attributes.url}
+              priority
             />
           </div>
         )}
