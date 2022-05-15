@@ -36,7 +36,6 @@ const useStyles = createStyles((theme) => ({
 
   copy: {
     alignItems: "center",
-    display: "flex",
     fontSize: "0.75rem",
     fontWeight: "bold",
 
@@ -111,7 +110,7 @@ const Footer: React.FC = () => {
               Get ahold of me
             </Anchor>
           </Text>
-          <Text className={classes.copy}>
+          <Text component="p" mb={0} className={classes.copy}>
             Made in Marin County, CA. Built with&nbsp;
             <Anchor
               color={"white"}
