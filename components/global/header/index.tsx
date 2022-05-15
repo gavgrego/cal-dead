@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { createStyles, Text, useMantineTheme } from "@mantine/core";
 import Anchor from "../anchor";
+import Marquee from "react-fast-marquee";
+import { useMedia } from "react-use";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -30,32 +32,12 @@ const useStyles = createStyles((theme) => ({
       transform: "none",
     },
   },
-  scrollingText: {
-    animation: "scroll-left 9s linear infinite",
-    fontWeight: "bold",
-    color: "white",
-    backgroundClip: "text",
-    backgroundSize: "200% auto",
-    transform: "translateX(-100%)",
-    lineHeight: 1,
-    letterSpacing: ".5px",
-    width: "133%",
-
-    "@keyframes scroll-left": {
-      "0%": {
-        transform: "translateX(100%)",
-      },
-    },
-
-    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
-      animation: "scroll-left 20s linear infinite",
-      width: "100%",
-    },
-  },
   scrollingTextContain: {
     background:
       "linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706)",
     animation: "gradient 7.5s linear infinite",
+    fontWeight: "bold",
+    color: "white",
     whiteSpace: "nowrap",
     animationDirection: "alternate",
     backgroundSize: " 600% 100%",
@@ -67,21 +49,26 @@ const useStyles = createStyles((theme) => ({
         backgroundPosition: "100%",
       },
     },
-    padding: ".5rem",
+    padding: ".25rem",
   },
 }));
 
 const Header: React.FC = () => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
+  const isMobile = useMedia("(max-width: 700px)");
+
   return (
     <>
       <div className={classes.header}>
-        <div className={classes.scrollingTextContain}>
-          <Text className={classes.scrollingText}>
-            🌹 GOLDEN STATE DEAD – Find Local Dead shows in California 💀
-          </Text>
-        </div>
+        <Marquee
+          speed={isMobile ? 60 : 120}
+          gradient={false}
+          className={classes.scrollingTextContain}
+        >
+          &nbsp;&nbsp;&nbsp;💀 GOLDEN STATE DEAD – Find local Dead shows around
+          California 🌹&nbsp;&nbsp;&nbsp;
+        </Marquee>
         <Link href="/" passHref>
           <Anchor className={classes.logo}>
             <span>🌁</span>

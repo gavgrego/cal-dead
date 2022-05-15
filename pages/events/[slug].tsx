@@ -44,7 +44,7 @@ const Event: NextPage = ({
   const startTime = format(new Date(event.attributes?.start), "p");
 
   return (
-    <Grid>
+    <Grid mx={12}>
       <Grid.Col mb={16} xs={12} sm={3}>
         <Text mt={0} component="h1" size="xl" className={classes.title}>
           {event.attributes.name}
