@@ -27,12 +27,21 @@ button {
   font-family: "Rubik" !important;
 }
 
+iframe {
+  font-family: "Rubik" !important;
+}
+
 .rbc-toolbar .rbc-toolbar-label {
   text-align: center !important;
-  padding: .5rem 0 0 !important;
+  padding: .5rem 0 !important;
 
   @media (min-width: 768px) {
     padding: 0 !important;
     text-align: right !important;
   }
+}
+
+.rbc-toolbar button {
+  cursor: pointer;
+  padding: .35rem !important;
 }

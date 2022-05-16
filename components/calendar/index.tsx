@@ -11,14 +11,12 @@ import { useRouter } from "next/router";
 import {
   Tooltip,
   createStyles,
-  Dialog,
   Text,
   Button,
   useMantineTheme,
   Grid,
-  Drawer,
 } from "@mantine/core";
-import { useMedia, useLocalStorage } from "react-use";
+import { useMedia } from "react-use";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
@@ -188,7 +186,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
           startAccessor="start"
           endAccessor="end"
           showAllEvents={true}
-          style={{ height: 600 }}
+          style={{ height: 700 }}
           views={["month"]}
           components={{
             eventWrapper: (wrapper) => (

@@ -111,7 +111,9 @@ const Footer: React.FC = () => {
             </Anchor>
           </Text>
           <Text component="p" mb={0} className={classes.copy}>
-            Made in Marin County, CA. Built with&nbsp;
+            Made in Marin County, CA.
+            <br />
+            Built with&nbsp;
             <Anchor
               color={"white"}
               href="https://nextjs.org/"
