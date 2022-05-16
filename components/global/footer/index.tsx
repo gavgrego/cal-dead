@@ -77,10 +77,10 @@ const Footer: React.FC = () => {
       <Grid mx={0}>
         <Grid.Col span={12}>
           <Text className={classes.copyLarge}>
-            <Link href="/about" passHref>
+            {/* <Link href="/about" passHref>
               <Anchor color={"white"}>About</Anchor>
             </Link>
-            &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; */}
             <Anchor
               color={"white"}
               href="https://discord.gg/FswagXhdZy"
@@ -131,6 +131,9 @@ const Footer: React.FC = () => {
             >
               Strapi
             </Anchor>
+          </Text>
+          <Text component="p" mb={0} className={classes.copy}>
+            v 0.9.0
           </Text>
         </Grid.Col>
       </Grid>

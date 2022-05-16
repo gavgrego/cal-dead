@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
   calendarFilters: {
     backgroundColor: theme.colors.gray[0],
     textAlign: "right",
-    marginBottom: "1rem",
+    marginBottom: ".5rem",
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       textAlign: "center",

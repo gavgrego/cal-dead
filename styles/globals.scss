@@ -34,11 +34,17 @@ iframe {
 .rbc-toolbar .rbc-toolbar-label {
   text-align: center !important;
   padding: .5rem 0 !important;
+  width: 100%;
 
   @media (min-width: 768px) {
     padding: 0 !important;
     text-align: right !important;
+    width: auto;
   }
+}
+
+.rbc-toolbar {
+  margin-bottom: .25rem !important;
 }
 
 .rbc-toolbar button {
