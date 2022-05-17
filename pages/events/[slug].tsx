@@ -69,7 +69,14 @@ const Event: NextPage = ({
 
           {event.attributes.Tickets && (
             <Anchor target={"_blank"} href={event.attributes.Tickets}>
-              <Button style={{ backgroundColor: theme.colors.orange[0] }}>
+              <Button
+                sx={(theme) => ({
+                  backgroundColor: theme.colors.orange[0],
+                  "&:hover": {
+                    opacity: ".7",
+                  },
+                })}
+              >
                 TICKETS
               </Button>
             </Anchor>
