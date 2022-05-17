@@ -19,6 +19,7 @@ const useStyles = createStyles((theme) => ({
     left: "7rem",
   },
   logo: {
+    cursor: "pointer",
     fontSize: "5rem",
     lineHeight: 1,
     position: "absolute",
@@ -69,10 +70,10 @@ const Header: React.FC = () => {
           &nbsp;&nbsp;&nbsp;💀 GOLDEN STATE DEAD – Find local Dead shows around
           California 🌹&nbsp;&nbsp;&nbsp;
         </Marquee>
-        <Link href="/" passHref>
-          <Anchor className={classes.logo}>
-            <span>🌁</span>
-          </Anchor>
+        <Link href="/">
+          {/* <Anchor className={classes.logo}> */}
+          <span className={classes.logo}>🌁</span>
+          {/* </Anchor> */}
         </Link>
       </div>
     </>
