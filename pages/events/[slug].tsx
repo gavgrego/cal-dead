@@ -27,6 +27,7 @@ const useStyles = createStyles((theme) => ({
   },
   title: {
     lineHeight: 1.25,
+    fontSize: "1.5rem",
   },
   image: {
     marginTop: "2rem",
@@ -53,9 +54,9 @@ const Event: NextPage = ({
 
   return (
     <Grid className={classes.container}>
-      <Grid.Col mb={16} xs={12} sm={3}>
+      <Grid.Col mb={16} xs={12} md={4}>
         <Paper shadow="md" p={"1.5rem"} radius={4}>
-          <Text mt={0} component="h1" size="xl" className={classes.title}>
+          <Text mt={0} component="h1" className={classes.title}>
             {event.attributes.name}
           </Text>
 
@@ -97,7 +98,7 @@ const Event: NextPage = ({
         </Paper>
       </Grid.Col>
 
-      <Grid.Col mb={16} xs={12} sm={9} className={classes.infoColumn}>
+      <Grid.Col mb={16} xs={12} md={8} className={classes.infoColumn}>
         <ReactMarkdown className={classes.mdContent}>
           {event.attributes.Content}
         </ReactMarkdown>
