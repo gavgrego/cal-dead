@@ -12,13 +12,12 @@ import OtherSites from "../components/other-sites";
 import { useState, useMemo } from "react";
 import Weather from "../components/weather";
 import weatherLocations from "../data/weather-locations";
-import CaWeeklyShow from "../components/ca-weekly-show";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
     marginBottom: `${theme.spacing.xs}rem`,
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
-      paddingRight: "3rem",
+      paddingRight: "2rem",
     },
   },
 }));
