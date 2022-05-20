@@ -20,6 +20,11 @@ const useStyles = createStyles((theme) => ({
       paddingRight: "2rem",
     },
   },
+  subCalendar: {
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      padding: "0 1rem",
+    },
+  },
 }));
 
 type City = {
@@ -43,7 +48,7 @@ const Home: NextPage = ({
         <Grid.Col px={0} pb={16} className={classes.calendar} xs={12} sm={9}>
           {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
-        <Grid.Col xs={12} sm={3}>
+        <Grid.Col xs={12} sm={3} className={classes.subCalendar}>
           {/* <CaWeeklyShow /> */}
 
           <Text component="h3">Weather Report Suite:</Text>
