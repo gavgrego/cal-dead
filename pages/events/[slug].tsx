@@ -86,12 +86,13 @@ const Event: NextPage = ({
           {event.attributes.Image.data && (
             <div className={classes.image}>
               <Image
-                alt={`${process.env.NEXT_PUBLIC_BASE_URL}${event.attributes.Image.data.attributes.name}`}
+                alt={`Poster or promotional event art for ${event.attributes.name}`}
                 layout="responsive"
                 width={event.attributes.Image.data.attributes.width}
                 height={event.attributes.Image.data.attributes.height}
                 objectPosition="relative"
                 src={event.attributes.Image.data.attributes.url}
+                priority
               />
             </div>
           )}
