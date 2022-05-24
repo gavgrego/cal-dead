@@ -136,7 +136,7 @@ const Footer: React.FC = () => {
             v 0.9.0
           </Text>
 
-          <a href="https://ko-fi.com/Z8Z6C8DK" target="_blank">
+          <a href="https://ko-fi.com/Z8Z6C8DK" target="_blank" rel="noreferrer">
             <img
               height="30"
               src="https://cdn.ko-fi.com/cdn/kofi5.png?v=3"
