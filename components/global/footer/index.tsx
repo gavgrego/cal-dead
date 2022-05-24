@@ -132,9 +132,17 @@ const Footer: React.FC = () => {
               Strapi
             </Anchor>
           </Text>
-          <Text component="p" mb={0} className={classes.copy}>
+          <Text component="p" mb={16} className={classes.copy}>
             v 0.9.0
           </Text>
+
+          <a href="https://ko-fi.com/Z8Z6C8DK" target="_blank">
+            <img
+              height="30"
+              src="https://cdn.ko-fi.com/cdn/kofi5.png?v=3"
+              alt="Buy Me a Coffee at ko-fi.com"
+            />
+          </a>
         </Grid.Col>
       </Grid>
     </footer>
