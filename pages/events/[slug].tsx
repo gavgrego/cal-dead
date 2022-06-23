@@ -46,12 +46,13 @@ const useStyles = createStyles((theme) => ({
 
 const Event: NextPage = ({
   event,
+  events,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const startDate = format(new Date(event.attributes?.start), "LLLL d");
   const startTime = format(new Date(event.attributes?.start), "p");
-
+  console.log(events);
   return (
     <Grid className={classes.container}>
       <Grid.Col mb={16} xs={12} md={4}>
@@ -145,9 +146,33 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
 
   const { data } = await UseFetchApi(`api/events?${query}&populate=Image`);
+
+  const categoryQuery = qs.stringify(
+    {
+      filters: {
+        location: {
+          $eq: data[0].attributes.location,
+        },
+        start: {
+          $gt: new Date(),
+        },
+      },
+      sort: ["start"],
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  const res = await fetch(
+    `https://cal-dead-strapi.herokuapp.com/api/events?${categoryQuery}`
+  );
+  const events = await res.json();
+
   return {
     props: {
       event: data[0],
+      events: events.data.splice(0, 4),
     },
   };
 };

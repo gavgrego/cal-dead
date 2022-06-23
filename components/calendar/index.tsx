@@ -130,7 +130,6 @@ const Calendar: React.FC<Props> = ({ events }) => {
   const isMobile = useMedia("(max-width: 700px)");
   const router = useRouter();
   const { classes } = useStyles();
-  console.log(events);
   const filterEvents = (area: string) => {
     const categoryFilteredEvents = events.filter(
       (item: any) => item.location === area

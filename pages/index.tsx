@@ -37,7 +37,6 @@ const Home: NextPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
-  console.log(events);
   const weatherCities = useMemo(() => {
     return weatherLocations;
   }, [Weather]);
