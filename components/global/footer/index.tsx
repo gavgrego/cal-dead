@@ -81,14 +81,14 @@ const Footer: React.FC = () => {
               <Anchor color={"white"}>About</Anchor>
             </Link>
             &nbsp; &nbsp; &nbsp; */}
-            <Anchor
+            {/* <Anchor
               color={"white"}
               href="https://discord.gg/FswagXhdZy"
               target="_blank"
             >
               Discord
-            </Anchor>
-            &nbsp; &nbsp; &nbsp;
+            </Anchor> */}
+            {/* &nbsp; &nbsp; &nbsp; */}
             <Anchor
               href="https://instagram.com/goldenstatedead"
               target="_blank"
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
             </Anchor>
           </Text>
         </Grid.Col>
-        <Grid.Col mt={32} className={classes.content} span={12}>
+        <Grid.Col mt={16} className={classes.content} span={12}>
           <Text className={classes.copy}>
             📧&nbsp;
             <Anchor

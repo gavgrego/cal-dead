@@ -18,6 +18,7 @@ import Image from "next/image";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
 import qs from "qs";
+import OtherEvents from "../../components/other-events";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -49,10 +50,9 @@ const Event: NextPage = ({
   events,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { classes } = useStyles();
-  const theme = useMantineTheme();
   const startDate = format(new Date(event.attributes?.start), "LLLL d");
   const startTime = format(new Date(event.attributes?.start), "p");
-  console.log(events);
+
   return (
     <Grid className={classes.container}>
       <Grid.Col mb={16} xs={12} md={4}>
@@ -112,6 +112,10 @@ const Event: NextPage = ({
           style={{ border: 0 }}
           src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&zoom=10&q=/${event.attributes.Address}`}
         ></iframe>
+
+        <Grid>
+          <OtherEvents events={events} />
+        </Grid>
       </Grid.Col>
     </Grid>
   );
@@ -156,6 +160,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         start: {
           $gt: new Date(),
         },
+        slug: {
+          $ne: data[0].attributes.slug,
+        },
       },
       sort: ["start"],
     },
@@ -165,14 +172,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
 
   const res = await fetch(
-    `https://cal-dead-strapi.herokuapp.com/api/events?${categoryQuery}`
+    `https://cal-dead-strapi.herokuapp.com/api/events?${categoryQuery}&populate=Image`
   );
   const events = await res.json();
 
   return {
     props: {
       event: data[0],
-      events: events.data.splice(0, 4),
+      events: events.data.splice(0, 3),
     },
   };
 };
