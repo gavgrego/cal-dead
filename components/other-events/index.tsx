@@ -44,7 +44,7 @@ const OtherEvents: React.FC<Props> = ({ events }) => {
       <Grid className={classes.cardContain}>
         {events.map((event) => {
           return (
-            <Link href={event.attributes.slug}>
+            <Link key={event.attributes.slug} href={event.attributes.slug}>
               <Card className={classes.card} shadow="sm" p="lg">
                 <Card.Section>
                   <Image
