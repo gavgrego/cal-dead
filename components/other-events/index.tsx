@@ -55,7 +55,7 @@ const OtherEvents: React.FC<Props> = ({ events }) => {
                   />
                 </Card.Section>
 
-                <Text component="h3" size="md" px={4}>
+                <Text component="h3" size="md" pt={2} px={4}>
                   {event.attributes.name}
                 </Text>
                 <Text component="h3" size="sm" px={4}>
