@@ -5,15 +5,7 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
-import {
-  Grid,
-  Text,
-  createStyles,
-  Anchor,
-  Button,
-  useMantineTheme,
-  Paper,
-} from "@mantine/core";
+import { Grid, Text, createStyles, Anchor, Button, Paper } from "@mantine/core";
 import Image from "next/image";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";

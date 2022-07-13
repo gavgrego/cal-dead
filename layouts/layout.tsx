@@ -9,8 +9,10 @@ import { useRouter } from "next/router";
 const useStyles = createStyles((theme) => ({
   content: {
     backgroundColor: theme.colors.gray[0],
+    maxWidth: "1600px",
     minHeight: "100%",
-    marginTop: "130px",
+    margin: "130px auto 0",
+    width: "100%",
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem 3rem",
@@ -25,12 +27,14 @@ const useStyles = createStyles((theme) => ({
   },
   contentHome: {
     backgroundColor: theme.colors.gray[0],
+    maxWidth: "1600px",
     minHeight: "100%",
     marginTop: "130px",
+    width: "100%",
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem 3rem",
-      marginTop: "80px",
+      margin: "70px auto 0",
     },
   },
 }));

@@ -40,6 +40,10 @@ const weatherLocations = [
     city: "Humboldt County",
     location: "lat=40.7450&lon=-123.8695",
   },
+  {
+    city: "Death Valley",
+    location: "lat=36.5323&lon=-16.9325",
+  },
 ];
 
 export default weatherLocations;

@@ -1,7 +1,5 @@
 import { Grid, Text, Card, createStyles } from "@mantine/core";
-import { Event } from "react-big-calendar";
 import Link from "next/link";
-import Image from "next/image";
 import { format } from "date-fns";
 
 const useStyles = createStyles((theme) => ({
@@ -20,6 +18,7 @@ const useStyles = createStyles((theme) => ({
   card: {
     cursor: "pointer",
     maxWidth: 300,
+    padding: ".75rem",
     textAlign: "center",
     transition: "opacity .2s ease",
 
@@ -34,7 +33,6 @@ type Props = {
 };
 
 const OtherEvents: React.FC<Props> = ({ events }) => {
-  console.log(events);
   const { classes } = useStyles();
   return (
     <Grid>
@@ -46,14 +44,7 @@ const OtherEvents: React.FC<Props> = ({ events }) => {
           return (
             <Link key={event.attributes.slug} href={event.attributes.slug}>
               <Card className={classes.card} shadow="sm" p="lg">
-                <Card.Section>
-                  <Image
-                    src={event.attributes.Image.data.attributes.url}
-                    height={300}
-                    width={300}
-                    layout="responsive"
-                  />
-                </Card.Section>
+                <Card.Section></Card.Section>
 
                 <Text component="h3" size="md" pt={2} px={4}>
                   {event.attributes.name}
