@@ -32,6 +32,12 @@ const useStyles = createStyles((theme) => ({
         padding: 0,
       },
     },
+    "& .rbc-month-view": {
+      width: theme.breakpoints.sm,
+      [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+        width: "100%",
+      },
+    },
     "& .rbc-header": {
       color: theme.colors.dark[4],
     },
@@ -184,7 +190,8 @@ const Calendar: React.FC<Props> = ({ events }) => {
           events={filteredEvents}
           startAccessor="start"
           endAccessor="end"
-          showAllEvents={true}
+          showAllEvents={false}
+          popup
           style={{ height: 700 }}
           views={["month"]}
           components={{

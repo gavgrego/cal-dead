@@ -3,6 +3,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MantineProvider, useMantineTheme, Global } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import Layout from "../layouts/layout";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -39,11 +40,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           spacing: { xs: 1, sm: 1.5, md: 2, lg: 2.5, xl: 3 },
         }}
       >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <NotificationsProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </NotificationsProvider>
       </MantineProvider>
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }
