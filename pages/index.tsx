@@ -12,7 +12,6 @@ import OtherSites from "../components/other-sites";
 import { useMemo, useState } from "react";
 import Weather from "../components/weather";
 import weatherLocations from "../data/weather-locations";
-import ListView from "../components/list-view";
 import { useQuery } from "react-query";
 import { DateContext } from "../data/context/DateContext";
 

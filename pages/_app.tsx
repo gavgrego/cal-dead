@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const theme = useMantineTheme();
   return (
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <Global
         styles={(theme) => ({
           h3: {
