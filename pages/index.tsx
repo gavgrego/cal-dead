@@ -50,8 +50,8 @@ const Home: NextPage = (
 
   const { width: viewPortWidth } = useViewportSize();
 
-  if (viewPortWidth <= theme.breakpoints.sm) {
-    useEffect(() => {
+  useEffect(() => {
+    if (viewPortWidth <= theme.breakpoints.sm) {
       if (!value) {
         setTimeout(() => {
           showNotification({
@@ -90,8 +90,8 @@ const Home: NextPage = (
           setValue(true);
         }, 1000);
       }
-    }, []);
-  }
+    }
+  }, [viewPortWidth]);
 
   const [monthAndYear, setMonthAndYear] = useState(new Date());
 
