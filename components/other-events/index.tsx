@@ -6,24 +6,34 @@ const useStyles = createStyles((theme) => ({
   cardContain: {
     alignItems: "flex-start",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     flexWrap: "nowrap",
+    lineHeight: "1.5",
     justifyContent: "space-between",
     width: "100%",
 
     "& > *:nth-child(2)": {
-      margin: "0 1.25rem",
+      margin: "1.25rem 0",
+    },
+
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      flexDirection: "row",
+
+      "& > *:nth-child(2)": {
+        margin: "0 1.25rem",
+      },
     },
   },
   card: {
+    border: `2px solid ${theme.colors.dark[3]}`,
     cursor: "pointer",
-    maxWidth: 300,
     padding: ".75rem",
     textAlign: "center",
     transition: "opacity .2s ease",
+    width: "100%",
 
     "&:hover": {
-      opacity: "0.8",
+      opacity: "0.7",
     },
   },
 }));
@@ -43,14 +53,16 @@ const OtherEvents: React.FC<Props> = ({ events }) => {
         {events.map((event) => {
           return (
             <Link key={event.attributes.slug} href={event.attributes.slug}>
-              <Card className={classes.card} shadow="sm" p="lg">
-                <Card.Section></Card.Section>
-
+              <Card className={classes.card} shadow="sm" p={12}>
                 <Text component="h3" size="md" pt={2} px={4}>
                   {event.attributes.name}
                 </Text>
-                <Text component="h3" size="sm" px={4}>
+                <Text component="h3" size="sm" px={4} mb={0}>
                   {format(new Date(event.attributes?.start), "LLLL d, yyyy")}
+                </Text>
+
+                <Text component="h3" size="sm" px={4} mb={0}>
+                  {event.location}
                 </Text>
               </Card>
             </Link>

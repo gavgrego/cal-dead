@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colors.gray[0],
     maxWidth: "1600px",
     minHeight: "100%",
-    margin: "130px auto 0",
+    margin: "130px auto 2rem",
     width: "100%",
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
