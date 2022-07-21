@@ -87,8 +87,8 @@ const Home: NextPage = (
               },
             }),
           });
-          setValue(true);
         }, 1000);
+        setValue(true);
       }
     }
   }, [viewPortWidth]);
