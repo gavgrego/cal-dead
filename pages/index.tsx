@@ -91,7 +91,7 @@ const Home: NextPage = (
         setValue(true);
       }
     }
-  }, [viewPortWidth]);
+  }, []);
 
   const [monthAndYear, setMonthAndYear] = useState(new Date());
 
