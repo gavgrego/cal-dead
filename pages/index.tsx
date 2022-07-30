@@ -17,7 +17,6 @@ import { DateContext } from "../data/context/DateContext";
 import { showNotification } from "@mantine/notifications";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { useViewportSize } from "@mantine/hooks";
-import MailForm from "../components/mail-form";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
