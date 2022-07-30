@@ -17,6 +17,7 @@ import { DateContext } from "../data/context/DateContext";
 import { showNotification } from "@mantine/notifications";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { useViewportSize } from "@mantine/hooks";
+import MailForm from "../components/mail-form";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
@@ -66,7 +67,6 @@ const Home: NextPage = (
                   "linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706)",
                 animation: "gradient 7.5s linear infinite",
                 fontWeight: "bold",
-                whiteSpace: "nowrap",
                 animationDirection: "alternate",
                 backgroundSize: " 600% 100%",
                 "@keyframes gradient": {
@@ -96,6 +96,7 @@ const Home: NextPage = (
   const [monthAndYear, setMonthAndYear] = useState(new Date());
 
   const { data: events } = useQuery("events", { initialData: props.events });
+
   return (
     <>
       <Grid px={0} mb={16} sx={{ overflowX: "hidden" }}>
@@ -112,6 +113,8 @@ const Home: NextPage = (
             return <Weather key={index} {...city} />;
           })}
           <br />
+          {/* <MailForm />
+          <br /> */}
           <OtherSites />
         </Grid.Col>
       </Grid>
