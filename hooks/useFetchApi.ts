@@ -1,6 +1,6 @@
-import { useQuery, UseQueryResult } from "react-query";
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-const baseUrl = "https://cal-dead-strapi.herokuapp.com";
+console.log(baseUrl);
 
 const UseFetchApi = async (path: string) => {
   const url = `${baseUrl}/${path}`;
