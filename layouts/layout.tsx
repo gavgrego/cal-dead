@@ -29,12 +29,12 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colors.gray[0],
     maxWidth: "1600px",
     minHeight: "100%",
-    marginTop: "130px",
+    marginTop: "175px",
     width: "100%",
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem 3rem",
-      margin: "70px auto 0",
+      margin: "90px auto 0",
     },
   },
 }));

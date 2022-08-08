@@ -3,6 +3,8 @@ import { createStyles, Text, useMantineTheme } from "@mantine/core";
 import Anchor from "../anchor";
 import Marquee from "react-fast-marquee";
 import { useMedia } from "react-use";
+import Image from "next/image";
+import Logo from "../../../assets/logo/golden-state-dead-logo-small.png";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -20,10 +22,9 @@ const useStyles = createStyles((theme) => ({
   },
   logo: {
     cursor: "pointer",
-    fontSize: "5rem",
     lineHeight: 1,
     position: "absolute",
-    top: "2.5rem",
+    top: "2.75rem",
     left: "50%",
     transform: "translateX(-50%)",
 
@@ -72,7 +73,9 @@ const Header: React.FC = () => {
         </Marquee>
         <Link href="/">
           {/* <Anchor className={classes.logo}> */}
-          <span className={classes.logo}>🌁</span>
+          <span className={classes.logo}>
+            <Image src={Logo} height="125" width="125" />
+          </span>
           {/* </Anchor> */}
         </Link>
       </div>

@@ -1,22 +1,15 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import Calendar from "../components/calendar";
 import UseFetchApi from "../hooks/useFetchApi";
-import {
-  Grid,
-  createStyles,
-  Text,
-  Loader,
-  useMantineTheme,
-} from "@mantine/core";
+import { Grid, createStyles, Text, Loader } from "@mantine/core";
 import OtherSites from "../components/other-sites";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Weather from "../components/weather";
 import weatherLocations from "../data/weather-locations";
 import { useQuery } from "react-query";
 import { DateContext } from "../data/context/DateContext";
-import { showNotification } from "@mantine/notifications";
-import useLocalStorage from "../hooks/useLocalStorage";
-import { useViewportSize } from "@mantine/hooks";
+import { useMobileCalToast } from "../hooks/useMobileCalToast";
+import qs from "qs";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
@@ -42,63 +35,21 @@ const Home: NextPage = (
     return weatherLocations;
   }, [Weather]);
 
-  const theme = useMantineTheme();
-
-  const { value, setValue } = useLocalStorage({
-    key: "mobile-cal",
-  });
-
-  const { width: viewPortWidth } = useViewportSize();
-
-  useEffect(() => {
-    if (viewPortWidth <= theme.breakpoints.sm) {
-      if (!value) {
-        setTimeout(() => {
-          showNotification({
-            title: "📱 Scroll horizontally to view the entire calendar!",
-            message: "",
-            autoClose: 4000,
-            disallowClose: true,
-            styles: (theme) => ({
-              root: {
-                border: "1px solid white",
-                background:
-                  "linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706)",
-                animation: "gradient 7.5s linear infinite",
-                fontWeight: "bold",
-                animationDirection: "alternate",
-                backgroundSize: " 600% 100%",
-                "@keyframes gradient": {
-                  "0%": {
-                    backgroundPosition: "0%",
-                  },
-                  "100%": {
-                    backgroundPosition: "100%",
-                  },
-                },
-                bottom: ".5rem",
-                padding: ".5rem",
-                margin: "0 .5rem",
-              },
-              title: {
-                color: "white",
-                fontWeight: 700,
-              },
-            }),
-          });
-        }, 1000);
-        setValue(true);
-      }
-    }
-  }, []);
-
   const [monthAndYear, setMonthAndYear] = useState(new Date());
 
-  const { data: events } = useQuery("events", { initialData: props.events });
+  // change key to be unique based on month and year
+  // need to get current month and year when changing months
+  const { data: events } = useQuery(`events`, { initialData: props.events });
+
+  // use onRangeChange prop in calendar to get range of dates that need queried,
+  // then refer back to previous queries if possible when navigating months
+  // this will prevent multiple queries and make app faster
+
+  useMobileCalToast();
 
   return (
     <>
-      <Grid px={0} mb={16} sx={{ overflowX: "hidden" }}>
+      <Grid px={0} mb={16}>
         <Grid.Col px={0} pb={16} className={classes.calendar} xs={12} sm={9}>
           <DateContext.Provider value={{ monthAndYear, setMonthAndYear }}>
             {/* need to pass date here via date prop */}
@@ -122,7 +73,27 @@ const Home: NextPage = (
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const rangeQuery = qs.stringify(
+    {
+      filters: {
+        start: {
+          $gt: new Date(),
+        },
+        end: {
+          $gt: new Date(),
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  // load initial events in the current month
   const eventsRes = await UseFetchApi("api/events");
+  // const eventsRes = await UseFetchApi(`api/events?${rangeQuery}`);
+
+  //will need to fetch again as calendar changes, store in react query
 
   eventsRes.data.forEach((event: any) => {
     event.id = event.id;
