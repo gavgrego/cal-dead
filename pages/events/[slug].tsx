@@ -47,7 +47,7 @@ const Event: NextPage = ({
 
   return (
     <Grid className={classes.container}>
-      <Grid.Col mb={16} xs={12} md={4}>
+      <Grid.Col mb={16} xs={12} sm={4}>
         <Paper shadow="md" p={"1.5rem"} radius={4}>
           <Text mt={0} component="h1" className={classes.title}>
             {event.attributes.name}
@@ -92,7 +92,7 @@ const Event: NextPage = ({
         </Paper>
       </Grid.Col>
 
-      <Grid.Col mb={16} xs={12} md={8} className={classes.infoColumn}>
+      <Grid.Col mb={16} xs={12} sm={8} className={classes.infoColumn}>
         <ReactMarkdown className={classes.mdContent}>
           {event.attributes.Content}
         </ReactMarkdown>

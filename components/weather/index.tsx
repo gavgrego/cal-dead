@@ -14,6 +14,19 @@ const useStyles = createStyles((theme) => ({
   cardContain: {
     justifyContent: "space-between",
     width: "100%",
+
+    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+      "& > *": {
+        width: "100%",
+      },
+    },
+
+    [`@media (min-width: ${theme.breakpoints.lg}px),
+    @media (max-width: ${theme.breakpoints.sm}px)`]: {
+      "& > *": {
+        width: "auto",
+      },
+    },
   },
   heading: {
     fontSize: "1rem",

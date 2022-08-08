@@ -16,6 +16,7 @@ const useStyles = createStyles((theme) => ({
 
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       padding: "1rem 3rem",
+      margin: "160px auto 2rem",
     },
   },
   contain: {
