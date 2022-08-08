@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "1.5rem",
   },
   image: {
-    marginTop: "2rem",
+    marginTop: "2.75rem",
   },
   infoColumn: {
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {

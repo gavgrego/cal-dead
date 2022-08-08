@@ -21,6 +21,18 @@ const useStyles = createStyles((theme) => ({
     left: "7rem",
   },
   logo: {
+    animation: "rotation 45s infinite linear",
+
+    "@keyframes rotation": {
+      from: {
+        transform: "rotate(0deg)",
+      },
+      to: {
+        transform: "rotate(359deg)",
+      },
+    },
+  },
+  logoContain: {
     cursor: "pointer",
     lineHeight: 1,
     position: "absolute",
@@ -73,8 +85,13 @@ const Header: React.FC = () => {
         </Marquee>
         <Link href="/">
           {/* <Anchor className={classes.logo}> */}
-          <span className={classes.logo}>
-            <Image src={Logo} height="125" width="125" />
+          <span className={classes.logoContain}>
+            <Image
+              className={classes.logo}
+              src={Logo}
+              height="110"
+              width="110"
+            />
           </span>
           {/* </Anchor> */}
         </Link>

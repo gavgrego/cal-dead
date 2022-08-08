@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
             </Anchor>
           </Text>
           <Text component="p" mb={16} className={classes.copy}>
-            v 0.9.0
+            v 1.1.0
           </Text>
 
           <a href="https://ko-fi.com/Z8Z6C8DK" target="_blank" rel="noreferrer">

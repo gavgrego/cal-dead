@@ -42,7 +42,7 @@ const weatherLocations = [
   },
   {
     city: "Death Valley",
-    location: "lat=36.5323&lon=-16.9325",
+    location: "lat=36.5322649&lon=-116.9325",
   },
 ];
 
