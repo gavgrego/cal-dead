@@ -39,7 +39,7 @@ export const useMobileCalToast = () => {
                     backgroundPosition: "100%",
                   },
                 },
-                bottom: ".5rem",
+                bottom: "1.5rem",
                 padding: ".5rem",
                 margin: "0 .5rem",
               },
