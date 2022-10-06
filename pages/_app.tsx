@@ -1,11 +1,11 @@
 import "../styles/globals.scss";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import type { AppProps } from "next/app";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MantineProvider, useMantineTheme, Global } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import Layout from "../layouts/layout";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const queryClient = new QueryClient();
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <PayPalScriptProvider
       options={{
         "client-id":
-          "AQV-u6nYM9w-EbAkNbqf03C-PoodDxaoldO0ZD_wDpCo8e9oGLm6eyQCHA9GU5yoP-B-gdah3XgfTkdO",
+          "ARcnMZbx1BgnTwOJKIOkdcCB4Tz4tv5aCbBNpWcc-71PzjB6aYGej3vSTDjoIKWesaNowLpvEQuQHyWc",
       }}
     >
       <QueryClientProvider client={queryClient}>
