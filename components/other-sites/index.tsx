@@ -4,7 +4,9 @@ import Anchor from "../global/anchor";
 const OtherSites: React.FC = (): JSX.Element => {
   return (
     <>
-      <Text component="h3">Other people and places we like:</Text>
+      <Text component="h3" size="lg">
+        Other people and places we like:
+      </Text>
       <List>
         <List.Item>
           <Anchor href="http://gdradio.net/" target="_blank">
@@ -19,11 +21,6 @@ const OtherSites: React.FC = (): JSX.Element => {
         <List.Item>
           <Anchor href="https://www.solfoodrestaurant.com/" target="_blank">
             Sol Food
-          </Anchor>
-        </List.Item>
-        <List.Item>
-          <Anchor href="https://www.purplestarmd.com" target="_blank">
-            Purple Star SF
           </Anchor>
         </List.Item>
         <List.Item>

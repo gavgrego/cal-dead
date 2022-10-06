@@ -3,13 +3,15 @@ import Calendar from "../components/calendar";
 import UseFetchApi from "../hooks/useFetchApi";
 import { Grid, createStyles, Text, Loader } from "@mantine/core";
 import OtherSites from "../components/other-sites";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Weather from "../components/weather";
 import weatherLocations from "../data/weather-locations";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { DateContext } from "../data/context/DateContext";
 import { useMobileCalToast } from "../hooks/useMobileCalToast";
 import qs from "qs";
+import { Callout } from "../components/callout";
+import StickersBG from "../assets/stickers-bg.jpg";
 
 const useStyles = createStyles((theme) => ({
   calendar: {
@@ -37,14 +39,13 @@ const Home: NextPage = (
 
   const [monthAndYear, setMonthAndYear] = useState(new Date());
 
-  // change key to be unique based on month and year
-  // need to get current month and year when changing months
-  const { data: events } = useQuery(`events`, { initialData: props.events });
+  // this stores the initial load/range of events from getStaticProps
+  //
+  const { data: events } = useQuery([`events`], { initialData: props.events });
 
-  // use onRangeChange prop in calendar to get range of dates that need queried,
-  // then refer back to previous queries if possible when navigating months
-  // this will prevent multiple queries and make app faster
+  // fetch
 
+  useEffect(() => {}, []);
   useMobileCalToast();
 
   return (
@@ -58,13 +59,14 @@ const Home: NextPage = (
           </DateContext.Provider>
         </Grid.Col>
         <Grid.Col xs={12} sm={3} className={classes.subCalendar}>
-          <Text component="h3">Weather Report Suite:</Text>
+          <Callout background={StickersBG} text="STICKERS!" link="/shop" />
+          <Text component="h3" size="lg">
+            Weather Report Suite:
+          </Text>
           {weatherCities.map((city, index) => {
             return <Weather key={index} {...city} />;
           })}
           <br />
-          {/* <MailForm />
-          <br /> */}
           <OtherSites />
         </Grid.Col>
       </Grid>
@@ -73,14 +75,15 @@ const Home: NextPage = (
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  // need to pass a dynamic value set when the month changes on the calendar and get new events accordingly
+  const now = new Date();
+  const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
   const rangeQuery = qs.stringify(
     {
       filters: {
         start: {
-          $gt: new Date(),
-        },
-        end: {
-          $gt: new Date(),
+          $gt: currentMonth,
         },
       },
     },
@@ -91,7 +94,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   // load initial events in the current month
   const eventsRes = await UseFetchApi("api/events");
-  // const eventsRes = await UseFetchApi(`api/events?${rangeQuery}`);
+  // const rangeRes = await UseFetchApi(`api/events?${rangeQuery}`);
+  // console.log(rangeRes);
 
   //will need to fetch again as calendar changes, store in react query
 

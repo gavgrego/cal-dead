@@ -1,4 +1,4 @@
-import { useQuery, UseQueryResult } from "react-query";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
 
 export type Weather = {
   base: string;
@@ -8,12 +8,14 @@ export type Weather = {
 };
 
 const useGetWeather = (location: string) => {
-  const { isLoading, error, data } = useQuery(`${location}-weather`, () =>
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?${location}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_TOKEN}&units=imperial`
-    ).then((res) => res.json())
+  const { isInitialLoading, error, data } = useQuery<Weather, Error>(
+    [`${location}-weather`],
+    () =>
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?${location}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_TOKEN}&units=imperial`
+      ).then((res) => res.json())
   );
-  return { isLoading, error, data };
+  return { isInitialLoading, error, data };
 };
 
 export default useGetWeather;

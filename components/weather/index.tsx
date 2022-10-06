@@ -1,7 +1,6 @@
 import useGetWeather, { Weather } from "../../hooks/useGetWeather";
 import { Paper, Grid, Text, createStyles, Loader } from "@mantine/core";
 import Image from "next/image";
-import { wrap } from "module";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -41,13 +40,13 @@ export type Props = {
 };
 
 const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
-  const { data, isLoading } = useGetWeather(location);
+  const { data, isInitialLoading } = useGetWeather(location);
   const weather = data as Weather;
   const { classes } = useStyles();
 
   return (
     <>
-      {!isLoading ? (
+      {!isInitialLoading ? (
         <Paper className={classes.card} shadow="sm" p="lg" color="gray">
           <Grid align="center" justify="center" className={classes.cardContain}>
             <Text align="center" component="h2" className={classes.heading}>
