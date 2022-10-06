@@ -1,4 +1,4 @@
-import { Anchor, Grid, Text } from "@mantine/core";
+import { Anchor, createStyles, Grid, Text } from "@mantine/core";
 import { NextPage } from "next";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { AmountWithCurrencyCodeOptional } from "@paypal/paypal-js";
@@ -6,11 +6,19 @@ import StickersBG from "../assets/stickers-bg.jpg";
 import Image from "next/image";
 import { useState } from "react";
 
+const useStyles = createStyles((theme) => ({
+  container: {
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      margin: "2rem 1rem 0",
+    },
+  },
+}));
+
 const Shop: NextPage = () => {
   const [paymentSuccess, setPaymentSuccess] = useState<boolean>(false);
-
+  const { classes } = useStyles();
   return (
-    <Grid>
+    <Grid className={classes.container}>
       {paymentSuccess ? (
         <Grid.Col>
           <Text size="lg" weight="bold">
