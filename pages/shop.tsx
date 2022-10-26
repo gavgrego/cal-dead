@@ -24,7 +24,7 @@ const Shop: NextPage = () => {
           <Text size="lg" weight="bold">
             Hey now!🌹💀 Look out for your stickers in the mail within the next
             week or so, if you haven&apos;t received them in 2 weeks feel free
-            to send me an email as a reminder. Thanks again and
+            to send me an email as a reminder. Thanks again and&nbsp;
             <Anchor
               style={{
                 textDecoration: "underline",
@@ -85,7 +85,7 @@ const Shop: NextPage = () => {
                 });
               }}
               onApprove={(data, actions) => {
-                return new Promise(() => {
+                return actions.order!.capture().then(() => {
                   setPaymentSuccess(true);
                 });
               }}
