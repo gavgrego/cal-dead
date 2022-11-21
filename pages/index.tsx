@@ -59,7 +59,7 @@ const Home: NextPage = (
           </DateContext.Provider>
         </Grid.Col>
         <Grid.Col xs={12} sm={3} className={classes.subCalendar}>
-          <Callout background={StickersBG} text="STICKERS!" link="/shop" />
+          {/* <Callout background={StickersBG} text="STICKERS!" link="/shop" /> */}
           <Text component="h3" size="lg">
             Weather Report Suite:
           </Text>
