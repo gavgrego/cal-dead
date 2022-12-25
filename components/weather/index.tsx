@@ -70,7 +70,7 @@ const Weather: React.FC<Props> = ({ location, city, sr }): JSX.Element => {
           </Grid>
         </Paper>
       ) : (
-        <Loader size={"md"} />
+        <Loader size="sm" color="#445F8D" />
       )}
     </>
   );
