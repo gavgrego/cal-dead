@@ -53,7 +53,12 @@ const Shop: NextPage = () => {
               まささん!
             </Anchor>
           </Text>
-          <Image src={StickersBG} width="400" height="300" />
+          <Image
+            alt={"Image of GOLDENSTATEDEAD.COM stickers"}
+            src={StickersBG}
+            width="400"
+            height="300"
+          />
           <Grid>
             <PayPalButtons
               createOrder={(data, actions) => {

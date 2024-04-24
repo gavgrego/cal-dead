@@ -182,6 +182,10 @@ const Calendar: React.FC<Props> = ({ events }) => {
           Reset
         </Button>
       </div>
+      {/* toolbar */}
+      <div>
+        <button onClick={() => console.log("next")}>Next</button>
+      </div>
       <div style={{ overflowX: "auto", width: "100%" }}>
         <Cal
           formats={formats}
@@ -191,6 +195,7 @@ const Calendar: React.FC<Props> = ({ events }) => {
           startAccessor="start"
           endAccessor="end"
           showAllEvents={false}
+          onRangeChange={(range) => console.log(range)}
           popup
           style={{ height: 700 }}
           views={["month"]}

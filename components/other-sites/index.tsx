@@ -39,8 +39,8 @@ const OtherSites: React.FC = (): JSX.Element => {
           </Anchor>
         </List.Item>
         <List.Item>
-          <Anchor href="https://gavin.land/" target="_blank">
-            GAVIN LAND
+          <Anchor href="https://gavgavgav.net/" target="_blank">
+            GAV GAV GAV
           </Anchor>
         </List.Item>
       </List>

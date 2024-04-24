@@ -41,6 +41,7 @@ const Home: NextPage = (
     <>
       <Grid px={0} mb={16}>
         <Grid.Col px={0} pb={16} className={classes.calendar} xs={12} sm={9}>
+          {/* add a prop to calendar that allows us to set state in this component containing the range to query */}
           {events ? <Calendar events={events} /> : <Loader />}
         </Grid.Col>
         <Grid.Col xs={12} sm={3} className={classes.subCalendar}>
